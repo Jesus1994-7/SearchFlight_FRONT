@@ -14,7 +14,18 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+      <Router>
 
+        <Header />
+
+          <Switch>
+            <Route path="/register" exact component={Register} />
+            <Route path="/login" exact component={Login} />
+            <Route path="/profile" exact component={Profile} />
+          </Switch>
+
+        <Footer />
+      </Router>
       </header>
     </div>
   );
