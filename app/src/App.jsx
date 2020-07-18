@@ -1,34 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+//import logo from './logo.svg';
+
 import Register from './views/register/register.jsx';
 import Login from './views/login/login.jsx';
 import Profile from './views/profile/profile.jsx';
 import Header from './components/header/header.jsx';
 import Footer from './components/footer/footer.jsx';
-import SearchFlight from './components/searchFlight/searchFlight.jsx';
+//import SearchFlight from './components/searchFlight/searchFlight.jsx';
+
+//import CSS
+import './App.css';
 
 
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-      <Router>
 
-        <Header />
+export default function App() {
+    return(
+        <div>
+          <Router>
 
-          <Switch>
-            <Route path="/register" exact component={Register} />
-            <Route path="/login" exact component={Login} />
-            <Route path="/profile" exact component={Profile} />
-          </Switch>
+ 
+              <Header />
 
-        <Footer />
-      </Router>
-      </header>
-    </div>
-  );
+              <Switch>
+                  <Route path="/register" exact component={Register} />
+                  <Route path="/login" exact component={Login} />
+                  <Route path="/profile" exact component={Profile} />
+              </Switch>
+
+              <Footer />
+          </Router>
+        </div>
+    );
 }
 
-export default App;
+

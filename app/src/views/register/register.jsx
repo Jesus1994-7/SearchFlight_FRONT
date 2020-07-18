@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 import './register.css';
 
 class Register extends React.Component {
