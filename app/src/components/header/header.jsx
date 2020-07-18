@@ -19,10 +19,10 @@ class Header extends React.Component {
                     <img src="" alt=""/>
                 </NavLink>
                 <NavLink exact to="/login">
-                    <button>Login</button> 
+                    <button>LOGIN</button> 
                 </NavLink>
                 <NavLink exact to="/register">
-                    <button>Register</button> 
+                    <button>REGISTER</button> 
                 </NavLink>
             </div>
         );
