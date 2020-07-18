@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './footer.css';
 
 class Footer extends React.Component {
@@ -12,8 +13,24 @@ class Footer extends React.Component {
 
     render() {
         return (
-            <div>
-                Componente Footer
+            <div className="comp-footer">
+                <div className="div-left">
+                    <p>Contact us</p>
+                    <button>900 901 529</button>
+
+                </div>
+                <div className="div-right">
+                    <p>For customers</p>
+                    <NavLink exact to="/aboutus">
+                        <button>About us</button>
+                    </NavLink>
+                    <NavLink exact to="/contactus">
+                        <button>Contact us</button>
+                    </NavLink>
+                    <NavLink exact to="/privacy">
+                        <button>Privacy policy</button>
+                    </NavLink>
+                </div>
             </div>
         )
     }

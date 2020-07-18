@@ -18,7 +18,7 @@ class Register extends React.Component {
             passport: "",
             questionSecret: "",
             answerSecret: "",
-            country: "",
+            CountryId: "",
             error: "",
 
             isRegistred : false
@@ -100,7 +100,7 @@ class Register extends React.Component {
             passport: this.state.passport,
             questionSecret: this.state.questionSecret,
             answerSecret: this.state.answerSecret,
-            country: 213,
+            CountryId: 213,
 
         }
         axios.post(`http://localhost:3005/main/register`,  user )
