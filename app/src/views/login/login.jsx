@@ -30,9 +30,9 @@ class Login extends React.Component {
 
         axios.post(`http://localhost:3005/main/login`, user)
             .then(() => {
-                    setTimeout(() => {
-                        this.props.history.push('/');
-                    }, 2000)
+                setTimeout(() => {
+                    this.props.history.push('/');
+                }, 2000)
             })
             .catch(error => console.log(error))
     }
