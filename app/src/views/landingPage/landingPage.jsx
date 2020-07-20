@@ -6,25 +6,29 @@ import dataService from '../../services/dataService.jsx';
 import './landingPage.css'
 
 class LandingPage extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.state = {}
     }
 
     componentDidMount() {
-        dataService.importInitialData();
+        try {
+            dataService.importInitialData();
+        } catch (error) {
+            console.log(error);
+        }
     }
 
-    render () {
-        return(
+    render() {
+        return (
             <div>
                 <div className="slider">
                     <p>SLIDER</p>
-                    <img src="" alt=""/>
-                    <img src="" alt=""/>
-                    <img src="" alt=""/>
-                    <img src="" alt=""/>
+                    <img src="" alt="" />
+                    <img src="" alt="" />
+                    <img src="" alt="" />
+                    <img src="" alt="" />
                 </div>
                 <section className="offers">
                     <p>AeroFlot special offers</p>
@@ -33,11 +37,11 @@ class LandingPage extends React.Component {
                     </NavLink>
                     <div className="container-offers">
                         <div className="first-offer">
-                            <img src="" alt=""/>
+                            <img src="" alt="" />
                             <p>Saint Petersburg</p>
                         </div>
                         <div className="second-offer">
-                            <img src="" alt=""/>
+                            <img src="" alt="" />
                             <p>Penza</p>
                         </div>
                     </div>
