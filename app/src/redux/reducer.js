@@ -1,6 +1,10 @@
 const initialState = {
     user: {},
-    token:''
+    token: '',
+    questionsList: {},
+    iataCodesList: {},
+    countriesList: {},
+    currenciesList: {}
 }
 
 export default function reducer(state = initialState, action) {
@@ -14,6 +18,26 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 token: action.payload
+            }
+        case 'QUESTIONS':
+            return {
+                ...state,
+                questionsList: action.payload
+            }
+        case 'IATACODES':
+            return {
+                ...state,
+                iataCodesList: action.payload
+            }
+        case 'COUNTRIES':
+            return {
+                ...state,
+                countriesList: action.payload
+            }
+        case 'CURRENCIES':
+            return {
+                ...state,
+                currenciesList: action.payload
             }
         default:
             return state

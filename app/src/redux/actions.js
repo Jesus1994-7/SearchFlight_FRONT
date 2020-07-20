@@ -1,20 +1,42 @@
 import store from './store';
-import userRepository from '../repositories/userRepository.jsx';
 
-export const login = async(credentials) => {
+export const login = async (loggedUser) => {
     try {
-        const res = userRepository.login(credentials);
         store.dispatch({
             type: 'LOGIN',
-            payload: res.user
+            payload: loggedUser.user
         });
         store.dispatch({
             type: 'TOKEN',
-            payload: res.token
+            payload: loggedUser.token
         });
         //localStorage.setItem('token_SECRETWORD', res.data.token);
-        return res;
     } catch (error) {
         console.error(error);
     }
+}
+
+export const valuesQuestions = async (questionsList) => {
+    store.dispatch({
+        type: 'QUESTIONS',
+        payload: questionsList
+    });
+}
+export const valuesIataCodes = async (iataCodesList) => {
+    store.dispatch({
+        type: 'IATACODES',
+        payload: iataCodesList
+    });
+}
+export const valuesCountries = async (countriesList) => {
+    store.dispatch({
+        type: 'COUNTRIES',
+        payload: countriesList
+    });
+}
+export const valuesCurrencies = async (currenciesList) => {
+    store.dispatch({
+        type: 'CURRENCIES',
+        payload: currenciesList
+    });
 }
