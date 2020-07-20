@@ -1,6 +1,7 @@
 import React from 'react';
-import axios from 'axios';
 import { NavLink } from 'react-router-dom';
+
+import dataRepository from '../../repositories/dataRepository.jsx'
 
 import './landingPage.css'
 
@@ -19,26 +20,18 @@ class LandingPage extends React.Component {
 
     //Llamadas del back almacenadas en una constante 
     componentDidMount() {
-        axios.get(`http://localhost:3005/data/questions`)
-            .then( res => {
-                const questions = res.data;
-                this.setState({ questions });
-            })
-        axios.get(`http://localhost:3005/data/iatacodes`)
-            .then( res => {
-                const iataCodes = res.data;
-                this.setState({ iataCodes });
-            })
-        axios.get(`http://localhost:3005/data/countries`)
-            .then( res => {
-                const countries = res.data;
-                this.setState({ countries });
-            })
-        axios.get(`http://localhost:3005/data/currencies`)
-            .then( res => {
-                const currencies = res.data;
-                this.setState({ currencies });
-            }) 
+
+        const questions = dataRepository.getAllQuestions();
+        this.setState({ questions });
+
+        const iataCodes = dataRepository.getAllIataCodes
+        this.setState({ iataCodes });
+
+        const countries = dataRepository.getAllCountries();
+        this.setState({ countries });
+
+        const currencies = dataRepository.getAllCurrencies();
+        this.setState({ currencies });
     }
 
     render () {
