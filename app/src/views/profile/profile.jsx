@@ -5,6 +5,7 @@ import validations from '../../utils/validations.jsx';
 import utils from '../../utils/utils';
 
 import './profile.css';
+import userService from '../../services/userService.jsx';
 
 class Profile extends React.Component {
     constructor(props) {
@@ -26,9 +27,8 @@ class Profile extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    
     componentDidMount() {
-        
+
         //recuperar de storage.user
         axios.get(`http://localhost:3005/user/` + 2)
             .then(res => {
@@ -64,7 +64,7 @@ class Profile extends React.Component {
             passport: this.state.passport,
             CountryId: this.state.countryId,
             ContactInfoId: this.state.contactInfoId,
-            address: this.state.address, 
+            address: this.state.address,
             telephone: this.state.telephone,
             email: this.state.email
         };
@@ -72,18 +72,19 @@ class Profile extends React.Component {
         let error = validations.userValidation(user);
 
         if (!utils.isNullOrEmpty(error)) {
-            this.setState({ msgError: error});
+            this.setState({ msgError: error });
             return;
         }
 
-
-        axios.post(`http://localhost:3005/user/modify`, user)
-            .then(() => {
-                setTimeout(() => {
-                    this.props.history.push('/');
-                }, 2000)
-            })
-            .catch(error => console.log(error))
+        try {
+            userService.updateUser(user);
+            setTimeout(() => {
+                this.props.history.push('/');
+            }, 2000);
+        } catch (error) {
+            console.log(error);
+            return;
+        }
     }
 
     //falta la parte de typePayData
