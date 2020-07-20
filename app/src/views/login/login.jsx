@@ -1,5 +1,9 @@
 import React from 'react';
 import { login } from '../../redux/actions';
+
+import validation from '../../utils/validations';
+import utils from '../../utils/utils';
+
 class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -18,17 +22,19 @@ class Login extends React.Component {
     pressLogin = (ev) => {
         ev.preventDefault();
 
-        if (this.state.password === "" || this.state.username === "") {
-            this.setState({ msgError: "All the fields must be filled." });
-            return;
-        }
-
-        let user = {
+        let credentials = {
             username: this.state.username,
             password: this.state.password
         };
-        login(user);
-        
+
+        let error = validation.credentialsValidation(credentials);
+        if (!utils.isNullOrEmpty(error)) { 
+            this.setState({ msgError: error }); 
+            return;
+        }
+
+        login(credentials);
+
         setTimeout(() => {
             this.props.history.push('/');
         }, 2000)

@@ -1,5 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+
+import validations from '../../utils/validations.jsx';
+import utils from '../../utils/utils';
+
 import './profile.css';
 
 class Profile extends React.Component {
@@ -21,7 +25,11 @@ class Profile extends React.Component {
         }
         this.handleChange = this.handleChange.bind(this);
     }
+
+    
     componentDidMount() {
+        
+        //recuperar de storage.user
         axios.get(`http://localhost:3005/user/` + 2)
             .then(res => {
                 const user = res.data;
@@ -47,21 +55,6 @@ class Profile extends React.Component {
     }
 
     handleUpdate = (ev) => {
-        const EMPTY = "";
-        let error = EMPTY;
-
-        if (this.state.username === EMPTY) { error = 'Username '; }
-        if (this.state.nameuser === EMPTY) { error = 'Name'; }
-        if (this.state.surname === EMPTY) { error = 'Surname '; }
-        if (this.state.passport === EMPTY) { error = 'Passport '; }
-        if (this.state.email === EMPTY) { error = 'Email '; }
-        if (this.state.address === EMPTY) { error = 'Address '; }
-        if (this.state.telephone === EMPTY) { error = 'Telephone '; }
-        if (this.state.passport === EMPTY) { error = 'Passport '; }
-
-        if (error !== EMPTY) {
-            this.setState({ msgError: error + ' must be filled' })
-        }
 
         let user = {
             id: this.state.idUser,
@@ -71,10 +64,18 @@ class Profile extends React.Component {
             passport: this.state.passport,
             CountryId: this.state.countryId,
             ContactInfoId: this.state.contactInfoId,
-            address: this.state.address,
+            address: this.state.address, 
             telephone: this.state.telephone,
             email: this.state.email
         };
+
+        let error = validations.userValidation(user);
+
+        if (!utils.isNullOrEmpty(error)) {
+            this.setState({ msgError: error});
+            return;
+        }
+
 
         axios.post(`http://localhost:3005/user/modify`, user)
             .then(() => {

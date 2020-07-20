@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const EMPTY ='';
 
-class userService {
+class userRepository {
 
     async login(credentials) {
         try {
@@ -14,4 +14,4 @@ class userService {
         }
     }
 }
-export default userService;
+export default userRepository;
