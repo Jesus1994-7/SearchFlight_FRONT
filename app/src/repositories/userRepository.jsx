@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const EMPTY ='';
+const EMPTY = '';
 
 class userRepository {
 
@@ -13,5 +13,17 @@ class userRepository {
             return EMPTY;
         }
     }
+    updateUser(user) {
+
+        axios.post(`http://localhost:3005/user/modify`, user)
+            .then()
+            .catch(error => { throw Error(error) });
+    }
+    createUser(user) {
+        axios.post(`http://localhost:3005/main/register`, user)
+            .then()
+            .catch(error => { throw Error(error) });
+    }
 }
+
 export default userRepository;
