@@ -1,9 +1,9 @@
 import store from './store';
-import userService from '../services/userService.jsx';
+import userRepository from '../services/userRepository.jsx';
 
 export const login = async(credentials) => {
     try {
-        const res = userService.login(credentials);
+        const res = userRepository.login(credentials);
         store.dispatch({
             type: 'LOGIN',
             payload: res.user
