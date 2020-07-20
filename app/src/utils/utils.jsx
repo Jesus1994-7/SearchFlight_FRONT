@@ -2,8 +2,8 @@
 
 class utils {
 
-    isNullorEmpty(variable){
-        return (variable == null || variable ==="");
+    isNullOrEmpty(variable){
+        return (variable == null || variable ==="" || variable === " ");
     }
 }
 
