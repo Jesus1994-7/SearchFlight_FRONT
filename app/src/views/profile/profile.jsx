@@ -26,8 +26,10 @@ class Profile extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    //recuperar de storage.user
+    
     componentDidMount() {
+        
+        //recuperar de storage.user
         axios.get(`http://localhost:3005/user/` + 2)
             .then(res => {
                 const user = res.data;
@@ -69,7 +71,10 @@ class Profile extends React.Component {
 
         let error = validations.userValidation(user);
 
-        if (!utils.isNullOrEmpty(error)) {this.setState({ msgError: error});}
+        if (!utils.isNullOrEmpty(error)) {
+            this.setState({ msgError: error});
+            return;
+        }
 
 
         axios.post(`http://localhost:3005/user/modify`, user)
