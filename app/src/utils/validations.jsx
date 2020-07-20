@@ -6,19 +6,26 @@ class validation {
     userValidation(user) {
         let error = EMPTY;
 
-        if (utils.isNullorEmpty(user.username)) { error = 'Username '; }
-        if (utils.isNullorEmpty(user.nameuser)) { error = 'Name'; }
-        if (utils.isNullorEmpty(user.surname)) { error = 'Surname '; }
-        if (utils.isNullorEmpty(user.passport)) { error = 'Passport '; }
-        if (utils.isNullorEmpty(user.email)) { error = 'Email '; }
-        if (utils.isNullorEmpty(user.address)) { error = 'Address '; }
-        if (utils.isNullorEmpty(user.telephone)) { error = 'Telephone '; }
-        if (utils.isNullorEmpty(user.passport)) { error = 'Passport '; }
+        if (utils.isNullOrEmpty(user.username)) { error = 'Username '; }
+        if (utils.isNullOrEmpty(user.nameuser)) { error = 'Name'; }
+        if (utils.isNullOrEmpty(user.surname)) { error = 'Surname '; }
+        if (utils.isNullOrEmpty(user.passport)) { error = 'Passport '; }
+        if (utils.isNullOrEmpty(user.email)) { error = 'Email '; }
+        if (utils.isNullOrEmpty(user.address)) { error = 'Address '; }
+        if (utils.isNullOrEmpty(user.telephone)) { error = 'Telephone '; }
+        if (utils.isNullOrEmpty(user.passport)) { error = 'Passport '; }
 
-        if (!utils.isNullorEmpty(error)) {
+        if (!utils.isNullOrEmpty(error)) {
             return error + ' must be filled.';
         }
     }
-}
+
+    credentialsValidation(credentials) {
+        if (utils.isNullOrEmpty(credentials.password) || utils.isNullOrEmpty(credentials.username)) {
+            return "All the fields must be filled.";
+        }
+        return EMPTY;
+    }
+};
 
 export default validation;
