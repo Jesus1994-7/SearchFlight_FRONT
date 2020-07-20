@@ -28,7 +28,10 @@ class Login extends React.Component {
         };
 
         let error = validation.credentialsValidation(credentials);
-        if (!utils.isNullOrEmpty(error)) { this.setState({ msgError: error }); }
+        if (!utils.isNullOrEmpty(error)) { 
+            this.setState({ msgError: error }); 
+            return;
+        }
 
         login(credentials);
 
