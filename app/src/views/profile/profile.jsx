@@ -1,6 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+
 import validations from '../../utils/validations.jsx';
+import utils from '../../utils/utils';
+
 import './profile.css';
 
 class Profile extends React.Component {
@@ -50,8 +53,6 @@ class Profile extends React.Component {
     }
 
     handleUpdate = (ev) => {
-        const EMPTY = "";
-        let error = EMPTY;
 
         let user = {
             id: this.state.idUser,
@@ -66,11 +67,9 @@ class Profile extends React.Component {
             email: this.state.email
         };
 
-        error = validations.userValidation(user);
+        let error = validations.userValidation(user);
 
-        if (error !== EMPTY) {
-            this.setState({ msgError: error});
-        }
+        if (!utils.isNullOrEmpty(error)) {this.setState({ msgError: error});}
 
 
         axios.post(`http://localhost:3005/user/modify`, user)
