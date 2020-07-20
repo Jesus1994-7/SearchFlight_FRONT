@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import validations from '../../utils/validations.jsx';
 import './profile.css';
 
 class Profile extends React.Component {
@@ -21,6 +22,8 @@ class Profile extends React.Component {
         }
         this.handleChange = this.handleChange.bind(this);
     }
+
+    //recuperar de storage.user
     componentDidMount() {
         axios.get(`http://localhost:3005/user/` + 2)
             .then(res => {
@@ -50,19 +53,6 @@ class Profile extends React.Component {
         const EMPTY = "";
         let error = EMPTY;
 
-        if (this.state.username === EMPTY) { error = 'Username '; }
-        if (this.state.nameuser === EMPTY) { error = 'Name'; }
-        if (this.state.surname === EMPTY) { error = 'Surname '; }
-        if (this.state.passport === EMPTY) { error = 'Passport '; }
-        if (this.state.email === EMPTY) { error = 'Email '; }
-        if (this.state.address === EMPTY) { error = 'Address '; }
-        if (this.state.telephone === EMPTY) { error = 'Telephone '; }
-        if (this.state.passport === EMPTY) { error = 'Passport '; }
-
-        if (error !== EMPTY) {
-            this.setState({ msgError: error + ' must be filled' })
-        }
-
         let user = {
             id: this.state.idUser,
             username: this.state.username,
@@ -71,10 +61,17 @@ class Profile extends React.Component {
             passport: this.state.passport,
             CountryId: this.state.countryId,
             ContactInfoId: this.state.contactInfoId,
-            address: this.state.address,
+            address: this.state.address, 
             telephone: this.state.telephone,
             email: this.state.email
         };
+
+        error = validations.userValidation(user);
+
+        if (error !== EMPTY) {
+            this.setState({ msgError: error});
+        }
+
 
         axios.post(`http://localhost:3005/user/modify`, user)
             .then(() => {
