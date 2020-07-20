@@ -1,5 +1,5 @@
 import store from './store';
-import userRepository from '../services/userRepository.jsx';
+import userRepository from '../repositories/userRepository.jsx';
 
 export const login = async(credentials) => {
     try {
