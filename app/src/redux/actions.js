@@ -1,7 +1,7 @@
 import store from './store';
 import userRepository from '../repositories/userRepository.jsx';
 
-export const login = async(credentials) => {
+export const login = async (credentials) => {
     try {
         const res = userRepository.login(credentials);
         store.dispatch({
@@ -17,4 +17,29 @@ export const login = async(credentials) => {
     } catch (error) {
         console.error(error);
     }
+}
+
+export const valuesQuestions = async (questionsList) => {
+    store.dispatch({
+        type: 'QUESTIONS',
+        payload: questionsList
+    });
+}
+export const valuesIataCodes = async (iataCodesList) => {
+    store.dispatch({
+        type: 'IATACODES',
+        payload: iataCodesList
+    });
+}
+export const valuesCountries = async (countriesList) => {
+    store.dispatch({
+        type: 'COUNTRIES',
+        payload: countriesList
+    });
+}
+export const valuesCurrencies = async (currenciesList) => {
+    store.dispatch({
+        type: 'CURRENCIES',
+        payload: currenciesList
+    });
 }
