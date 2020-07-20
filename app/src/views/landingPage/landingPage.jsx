@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import dataRepository from '../../repositories/dataRepository.jsx'
+import dataService from '../../services/dataService.jsx';
 
 import './landingPage.css'
 
@@ -9,29 +9,11 @@ class LandingPage extends React.Component {
     constructor(props){
         super(props);
 
-        this.state = {
-            questions: [],
-            iataCodes: [],
-            countries: [],
-            currencies: []
-        }
-        
+        this.state = {}
     }
 
-    //Llamadas del back almacenadas en una constante 
     componentDidMount() {
-
-        const questions = dataRepository.getAllQuestions();
-        this.setState({ questions });
-
-        const iataCodes = dataRepository.getAllIataCodes
-        this.setState({ iataCodes });
-
-        const countries = dataRepository.getAllCountries();
-        this.setState({ countries });
-
-        const currencies = dataRepository.getAllCurrencies();
-        this.setState({ currencies });
+        dataService.importInitialData();
     }
 
     render () {
