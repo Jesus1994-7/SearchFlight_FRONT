@@ -3,6 +3,7 @@ import axios from 'axios';
 import './register.css';
 import validation from "../../utils/validations";
 import utils from "../../utils/utils";
+import userService from "../../services/userService";
 
 class Register extends React.Component {
     constructor(props) {
@@ -56,23 +57,19 @@ class Register extends React.Component {
         let error = validation.userValidation(user);
         error += validation.registerUserValidation(user, this.state.password2);
 
-        if (!utils.isNullOrEmpty(error)) { 
-            this.setState({ msgError: error }); 
+        if (!utils.isNullOrEmpty(error)) {
+            this.setState({ msgError: error });
             return;
         }
 
-        axios.post(`http://localhost:3005/main/register`, user)
-            .then(() => {
-                setTimeout(() => {
-                    this.props.history.push('/');
-                }, 2000)
-            })
-            .catch(error => {
-                console.log(error);
-            })
-
-        //respuesta back positiva
-
+        try {
+            userService.createUser(user);
+            setTimeout(() => {
+                this.props.history.push('/');
+            }, 2000);
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     //RENDERIZAR
