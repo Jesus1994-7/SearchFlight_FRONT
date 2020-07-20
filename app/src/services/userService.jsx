@@ -8,5 +8,11 @@ class userService {
         if(!logged){ throw Error("Could not log in.");}
         login(logged);
     }
+    updateUser(user){
+        userRepository.updateUser(user);
+    }
+    createUser(user){
+        userRepository.createUser(user);
+    }
 }
 export default userService;
