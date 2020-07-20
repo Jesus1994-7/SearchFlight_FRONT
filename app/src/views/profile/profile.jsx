@@ -59,7 +59,7 @@ class Profile extends React.Component {
         if (this.state.telephone === EMPTY) { error = 'Telephone '; }
         if (this.state.passport === EMPTY) { error = 'Passport '; }
 
-        if (error != EMPTY) {
+        if (error !== EMPTY) {
             this.setState({ msgError: error + ' must be filled' })
         }
 
@@ -67,7 +67,6 @@ class Profile extends React.Component {
             id: this.state.idUser,
             username: this.state.username,
             name: this.state.nameuser,
-            username: this.state.username,
             surname: this.state.surname,
             passport: this.state.passport,
             CountryId: this.state.countryId,
