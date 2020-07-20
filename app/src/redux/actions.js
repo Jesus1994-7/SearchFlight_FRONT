@@ -1,19 +1,16 @@
 import store from './store';
-import userRepository from '../repositories/userRepository.jsx';
 
-export const login = async (credentials) => {
+export const login = async (loggedUser) => {
     try {
-        const res = userRepository.login(credentials);
         store.dispatch({
             type: 'LOGIN',
-            payload: res.user
+            payload: loggedUser.user
         });
         store.dispatch({
             type: 'TOKEN',
-            payload: res.token
+            payload: loggedUser.token
         });
         //localStorage.setItem('token_SECRETWORD', res.data.token);
-        return res;
     } catch (error) {
         console.error(error);
     }
