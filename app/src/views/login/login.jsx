@@ -1,6 +1,6 @@
 import React from 'react';
-import { login } from '../../redux/actions';
 
+import userService from '../../services/userService.jsx';
 import validation from '../../utils/validations';
 import utils from '../../utils/utils';
 
@@ -33,11 +33,13 @@ class Login extends React.Component {
             return;
         }
 
-        login(credentials);
+        try {
+            userService.login(credentials);
+            setTimeout(() => {
+                this.props.history.push('/');
+            }, 2000);
 
-        setTimeout(() => {
-            this.props.history.push('/');
-        }, 2000)
+        } catch (error) { return; }
     }
 
     render() {
