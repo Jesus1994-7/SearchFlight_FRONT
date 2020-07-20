@@ -1,6 +1,5 @@
 import React from 'react';
-import axios from 'axios';
-
+import { login } from '../../redux/actions';
 class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -17,6 +16,7 @@ class Login extends React.Component {
     }
 
     pressLogin = (ev) => {
+        ev.preventDefault();
 
         if (this.state.password === "" || this.state.username === "") {
             this.setState({ msgError: "All the fields must be filled." });
@@ -27,26 +27,23 @@ class Login extends React.Component {
             username: this.state.username,
             password: this.state.password
         };
-
-        axios.post(`http://localhost:3005/main/login`, user)
-            .then(() => {
-                setTimeout(() => {
-                    this.props.history.push('/');
-                }, 2000)
-            })
-            .catch(error => console.log(error))
+        login(user);
+        
+        setTimeout(() => {
+            this.props.history.push('/');
+        }, 2000)
     }
 
     render() {
         return (
-            <div>
+            <form onSubmit={this.pressLogin}>
                 <span>{this.state.msgError}</span>
                 <input type="text" placeholder="usuario" name="username"
                     value={this.state.username} onChange={this.handleChange}></input>
                 <input type="password" placeholder="password" name="password"
                     value={this.state.password} onChange={this.handleChange}></input>
-                <button onClick={this.pressLogin}>LogIn!</button>
-            </div>
+                <button type="submit">LogIn!</button>
+            </form>
         )
     }
 
