@@ -11,8 +11,8 @@ function importInitialData() {
 
     let questions = dataRepository.getAllQuestions();
     let defaultQuestions = utils.systemSecretQuestions();
-    questions = Array.prototype.push.apply(questions,defaultQuestions);
-    
+    questions = Array.prototype.push.apply(questions, defaultQuestions);
+
     //questions = [...new Set(questions.map(item => item.questionSecret))];
     valuesQuestions(questions);
 
@@ -25,3 +25,14 @@ function importInitialData() {
     let currencies = dataRepository.getAllCurrencies();
     valuesCurrencies(currencies);
 };
+
+function exchange(currencyA, currencyB, quantity) {
+
+    const currencies = {
+        baseCurrencyCode: currencyA,
+        changeCurrencyCode: currencyB
+    };
+
+    const ratio = dataRepository.getExchangeRatio(currencies).exchange;
+    return quantity * ratio;
+}
