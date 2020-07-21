@@ -19,6 +19,13 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 token: action.payload
             }
+        case 'LOGOUT':
+            return {
+                ...state,
+                token:'',
+                user: {}
+                
+            }
         case 'QUESTIONS':
             return {
                 ...state,

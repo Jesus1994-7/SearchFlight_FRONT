@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-
+//import { useSelector } from 'react-redux';
 import { dataService } from '../../services/dataService';
 
 import './landingPage.css';
@@ -14,6 +14,7 @@ class LandingPage extends React.Component {
 
     componentDidMount() {
         try {
+            //const user = useSelector(state => state.user);
             dataService.importInitialData();
         } catch (error) {
             console.log(error);

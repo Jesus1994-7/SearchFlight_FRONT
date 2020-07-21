@@ -1,7 +1,7 @@
 import { dataRepository } from '../repositories/dataRepository.jsx';
 import { utils } from "../utils/utils.jsx";
-
 import { valuesQuestions, valuesIataCodes, valuesCountries, valuesCurrencies } from '../redux/actions.js';
+import { userRepository } from '../repositories/userRepository.jsx';
 
 export const dataService = {
     importInitialData
@@ -24,4 +24,11 @@ function importInitialData() {
 
     let currencies = dataRepository.getAllCurrencies();
     valuesCurrencies(currencies);
+
+    /*const token = localStorage.getItem('authToken')
+    if(!user && token){
+        let user = userRepository.getUserbyToken();
+        loginbyToken(user);
+    }*/
+    
 };

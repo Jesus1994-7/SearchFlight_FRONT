@@ -1,5 +1,4 @@
 import store from './store';
-
 export const login = async (loggedUser) => {
     try {
         store.dispatch({
@@ -10,7 +9,28 @@ export const login = async (loggedUser) => {
             type: 'TOKEN',
             payload: loggedUser.token
         });
-        //localStorage.setItem('token_SECRETWORD', res.data.token);
+        
+    } catch (error) {
+        console.error(error);
+    }
+}
+/*export const loginbyToken = async (user) => {
+    try {
+        store.dispatch({
+            type: 'LOGIN',
+            payload: user
+        });
+       
+    } catch (error) {
+        console.error(error);
+    }
+}*/
+
+export const logout = async() => {
+    try {
+        store.dispatch({
+            type: 'LOGOUT'
+        });
     } catch (error) {
         console.error(error);
     }
