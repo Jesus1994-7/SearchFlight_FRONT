@@ -10,8 +10,10 @@ export const dataService = {
 function importInitialData() {
 
     let questions = dataRepository.getAllQuestions();
-    questions = questions.concat(utils.systemSecretQuestions());
-    questions = [...new Set(questions.map(item => item.questionSecret))];
+    let defaultQuestions = utils.systemSecretQuestions();
+    questions = Array.prototype.push.apply(questions,defaultQuestions);
+    
+    //questions = [...new Set(questions.map(item => item.questionSecret))];
     valuesQuestions(questions);
 
     let iataCodes = dataRepository.getAllIataCodes();
