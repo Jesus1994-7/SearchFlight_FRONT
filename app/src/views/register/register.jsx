@@ -78,6 +78,7 @@ class Register extends React.Component {
         return (
             <div className="comp-Register">
                 <div>
+                    <span>{this.state.msgError}</span>
                     <input placeholder="Write your address" type="text" name="address" value={this.state.address} onChange={this.handleChange}></input>
                     <input placeholder="Write your telephone" type="text" name="telephone" value={this.state.telephone} onChange={this.handleChange} ></input>
                     <input placeholder="Write your email" type="text" name="email" value={this.state.email} onChange={this.handleChange}></input>
