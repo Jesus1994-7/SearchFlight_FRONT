@@ -1,9 +1,10 @@
 import React from "react";
-import axios from 'axios';
+
+import { validations } from "../../utils/validations.jsx";
+import { utils } from "../../utils/utils.jsx";
+import { userService } from "../../services/userService.jsx";
+
 import './register.css';
-import validation from "../../utils/validations";
-import utils from "../../utils/utils";
-import userService from "../../services/userService";
 
 class Register extends React.Component {
     constructor(props) {
@@ -54,8 +55,8 @@ class Register extends React.Component {
 
         }
 
-        let error = validation.userValidation(user);
-        error += validation.registerUserValidation(user, this.state.password2);
+        let error = validations.userValidation(user);
+        error += validations.registerUserValidation(user, this.state.password2);
 
         if (!utils.isNullOrEmpty(error)) {
             this.setState({ msgError: error });

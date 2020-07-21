@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import dataService from '../../services/dataService.jsx';
+import { dataService } from '../../services/dataService';
 
-import './landingPage.css'
+import './landingPage.css';
 
 class LandingPage extends React.Component {
     constructor(props) {

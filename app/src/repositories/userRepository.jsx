@@ -2,28 +2,30 @@ import axios from 'axios';
 
 const EMPTY = '';
 
-class userRepository {
 
-    async login(credentials) {
-        try {
-            const res = await axios.post(`http://localhost:3005/main/login`, credentials);
-            return res.data;
-        }
-        catch (error) {
-            return EMPTY;
-        }
-    }
-    updateUser(user) {
+export const userRepository = {
+    login,
+    updateUser,
+    createUser
+};
 
-        axios.post(`http://localhost:3005/user/modify`, user)
-            .then()
-            .catch(error => { throw Error(error) });
+async function login(credentials) {
+    try {
+        const res = await axios.post(`http://localhost:3005/main/login`, credentials);
+        return res.data;
     }
-    createUser(user) {
-        axios.post(`http://localhost:3005/main/register`, user)
-            .then()
-            .catch(error => { throw Error(error) });
+    catch (error) {
+        return EMPTY;
     }
-}
+};
+function updateUser(user) {
 
-export default userRepository;
+    axios.post(`http://localhost:3005/user/modify`, user)
+        .then()
+        .catch(error => { throw Error(error) });
+};
+function createUser(user) {
+    axios.post(`http://localhost:3005/main/register`, user)
+        .then()
+        .catch(error => { throw Error(error) });
+};

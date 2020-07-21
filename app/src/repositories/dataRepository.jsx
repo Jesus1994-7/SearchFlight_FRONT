@@ -1,36 +1,41 @@
 import axios from 'axios';
 
-const EMPTY ='';
+const EMPTY = '';
 
-class dataRepository {
+export const dataRepository = {
+    getAllQuestions,
+    getAllIataCodes,
+    getAllCountries,
+    getAllCurrencies
+};
 
-    async getAllQuestions() {
-        try {
-            const res = await axios.get(`http://localhost:3005/data/questions`);
-            return res.data;
-        }
-        catch (error) { return EMPTY; }
+
+async function getAllQuestions() {
+    try {
+        const res = await axios.get(`http://localhost:3005/data/questions`);
+        return res.data;
     }
-    async getAllIataCodes() {
-        try {
-            const res = await axios.get(`http://localhost:3005/data/iatacodes`);
-            return res.data;
-        }
-        catch (error) { return EMPTY; }
+    catch (error) { return EMPTY; }
+};
+async function getAllIataCodes() {
+    try {
+        const res = await axios.get(`http://localhost:3005/data/iatacodes`);
+        return res.data;
     }
-    async getAllCountries() {
-        try {
-            const res = await axios.get(`http://localhost:3005/data/countries`);
-            return res.data;
-        }
-        catch (error) { return EMPTY; }
+    catch (error) { return EMPTY; }
+};
+async function getAllCountries() {
+    try {
+        const res = await axios.get(`http://localhost:3005/data/countries`);
+        return res.data;
     }
-    async getAllCurrencies() {
-        try {
-            const res = await axios.get(`http://localhost:3005/data/currencies`);
-            return res.data;
-        }
-        catch (error) { return EMPTY; }
-    } 
-}
-export default dataRepository;
+    catch (error) { return EMPTY; }
+};
+async function getAllCurrencies() {
+    try {
+        const res = await axios.get(`http://localhost:3005/data/currencies`);
+        return res.data;
+    }
+    catch (error) { return EMPTY; }
+};
+

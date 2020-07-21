@@ -1,8 +1,8 @@
 import React from 'react';
 
-import userService from '../../services/userService.jsx';
-import validation from '../../utils/validations';
-import utils from '../../utils/utils';
+import { userService } from '../../services/userService.jsx';
+import { validations } from "../../utils/validations.jsx";
+import { utils } from "../../utils/utils.jsx";
 
 class Login extends React.Component {
     constructor(props) {
@@ -27,21 +27,21 @@ class Login extends React.Component {
             password: this.state.password
         };
 
-        let error = validation.credentialsValidation(credentials);
-        if (!utils.isNullOrEmpty(error)) { 
-            this.setState({ msgError: error }); 
+        let error = validations.credentialsValidation(credentials);
+        if (!utils.isNullOrEmpty(error)) {
+            this.setState({ msgError: error });
             return;
         }
 
         try {
-            userService.login(credentials);
+            userService.loginServ(credentials);
             setTimeout(() => {
                 this.props.history.push('/');
             }, 2000);
 
-        } catch (error) { 
+        } catch (error) {
             console.log(error);
-            return; 
+            return;
         }
     }
 

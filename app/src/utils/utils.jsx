@@ -1,17 +1,17 @@
 
+export const utils = {
+    isNullOrEmpty,
+    systemSecretQuestions
+};
 
-class utils {
+function isNullOrEmpty(variable) {
+    return (variable == null || variable === "" || variable === " ");
+};
 
-    isNullOrEmpty(variable){
-        return (variable == null || variable ==="" || variable === " ");
-    }
-    systemSecretQuestions() {
-        return [
-            {"questionSecret":"Nombre de tu primera mascota"},
-            {"questionSecret":"Modelo de tu primer coche"},
-            {"questionSecret":"Nombre de tu colegio"}
-        ];
-    }
-}
-
-export default utils;
+function systemSecretQuestions() {
+    return [
+        { "questionSecret": "Nombre de tu primera mascota" },
+        { "questionSecret": "Modelo de tu primer coche" },
+        { "questionSecret": "Nombre de tu colegio" }
+    ];
+};
