@@ -1,10 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux';
-import { userService } from '../../services/userService.jsx';
-//import { utils } from '../../utils/utils.jsx';
-import user from '../../redux/store.js'
-
 
 import './header.scss';
 //ICONOS
@@ -33,13 +29,14 @@ const Header = () => {
                             {user?.id
                             ?
                                 <li>
-                                    <a href="/login" className="accesos">Login</a>
-                                    <a href="/register" className="accesos">Register</a>
-                                </li>
-                            :
-                                <li>
                                     <a href="/profile" className="accesos">Profile</a>
                                     <a href="/" className="accesos">Logout</a>
+                                </li>
+                            :
+                                
+                                <li>
+                                    <a href="/login" className="accesos">Login</a>
+                                    <a href="/register" className="accesos">Register</a>
                                 </li>
                             }
                             </ul>
