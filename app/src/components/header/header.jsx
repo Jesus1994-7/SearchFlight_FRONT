@@ -42,7 +42,7 @@ const Header = () => {
                             </ul>
 
                         </li>
-                        <li><FontAwesomeIcon icon={faSearch} className="iconos" /></li>
+                        <li><a href="/search"><FontAwesomeIcon icon={faSearch} className="iconos" /></a></li>
                     </ul>
                 </div>
                             
