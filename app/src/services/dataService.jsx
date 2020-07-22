@@ -22,8 +22,8 @@ function importInitialData() {
     let countries = dataRepository.getAllCountries();
     valuesCountries(countries);
 
-    let currencies = dataRepository.getAllCurrencies();
-    valuesCurrencies(currencies);
+    dataRepository.getAllCurrencies()
+    .then(currencies =>valuesCurrencies(currencies))
 };
 
 function exchange(currencyA, currencyB, quantity) {
