@@ -1,35 +1,38 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
-import  user  from '../../redux/store.js'
+import { useSelector } from 'react-redux';
+import { userService } from '../../services/userService.jsx';
+//import { utils } from '../../utils/utils.jsx';
+
 
 import './header.css';
 
-class Header extends React.Component {
-    constructor(props) {
-        super(props);
+const Header = () => {
 
-        this.state = {
-            isLoggedIn : false
-        }
-    };
+    const user = useSelector(state => state.user);
+    console.table(user);
 
-    render() {
-        if(user ){
-            return(
-                <div className="comp-Header">
-                    <NavLink exact to="/">
-                        <img src="" alt=""/>
-                    </NavLink>
-                    <NavLink exact to="/login">
-                        <button>LOGIN</button> 
-                    </NavLink>
-                    <NavLink exact to="/register">
-                        <button>REGISTER</button> 
-                    </NavLink>
+    return(
+        <div className="comp-Header">
+            <NavLink exact to="/">
+                <img src="" alt=""/>
+            </NavLink>
+            {user.id
+            ?
+                <div> Bienvenido
+                    <NavLink to='/profile' exact>{user.name}</NavLink>
+                    <button  onClick={userService.logoutServ}>Logout</button>
                 </div>
-            );
-        }
-        }
-    };
+            :
+                <div>
+                    <NavLink exact to="/login">Login</NavLink>
+                    <NavLink exact to="/register">Register</NavLink>
+                </div>
+            }
+        </div>
+
+    );
+}
+    
 
 export default Header;
