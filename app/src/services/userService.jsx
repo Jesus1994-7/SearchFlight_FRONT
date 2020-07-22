@@ -21,7 +21,8 @@ function loginServ(credentials) {
 };
 function logoutServ() {
     localStorage.removeItem('authToken');
-    userRepository.logout()
+    logout();
+    
 };
 function updateUser(user) {
     userRepository.updateUser(user);

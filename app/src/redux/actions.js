@@ -27,13 +27,11 @@ export const login = async (loggedUser) => {
 }*/
 
 export const logout = async() => {
-    try {
+    
         store.dispatch({
             type: 'LOGOUT'
         });
-    } catch (error) {
-        console.error(error);
-    }
+    
 }
 
 export const valuesQuestions = async (questionsList) => {

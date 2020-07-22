@@ -1,11 +1,10 @@
 import axios from 'axios';
 
-const EMPTY = '';
+//const EMPTY = '';
 
 
 export const userRepository = {
     login,
-    logout,
     updateUser,
     createUser,
     //getUserbyToken
@@ -22,14 +21,6 @@ async function login(credentials) {
     }
 };
 
-async function logout() {
-    try {
-        const res = axios.get(`http://localhost:3005/user/logout`)
-        return res;
-    } catch (error) {
-        
-    }
-}
 function updateUser(user) {
 
     axios.post(`http://localhost:3005/user/modify`, user)

@@ -1,7 +1,6 @@
 import { dataRepository } from '../repositories/dataRepository.jsx';
 import { utils } from "../utils/utils.jsx";
 import { valuesQuestions, valuesIataCodes, valuesCountries, valuesCurrencies } from '../redux/actions.js';
-import { userRepository } from '../repositories/userRepository.jsx';
 
 export const dataService = {
     importInitialData

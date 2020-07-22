@@ -21,7 +21,7 @@ const Header = () => {
             ?
                 <div> Bienvenido
                     <NavLink to='/profile' exact>{user.name}</NavLink>
-                    {/*<button  onClick={preventDefault(), userService.logoutServ()}>Logout</button>*/}
+                    <button  onClick={userService.logoutServ}>Logout</button>
                 </div>
             :
                 <div>
