@@ -4,7 +4,8 @@ import { utils } from "../utils/utils.jsx";
 import { valuesQuestions, valuesIataCodes, valuesCountries, valuesCurrencies } from '../redux/actions.js';
 
 export const dataService = {
-    importInitialData
+    importInitialData,
+    exchange
 };
 
 function importInitialData() {
@@ -33,6 +34,8 @@ function exchange(currencyA, currencyB, quantity) {
         changeCurrencyCode: currencyB
     };
 
-    const ratio = dataRepository.getExchangeRatio(currencies).exchange;
-    return quantity * ratio;
+    let result = dataRepository.getExchangeRatio(currencies)
+    .then(res => { return res.exchange * quantity;})
+    .catch(error => { });
+    return result;
 }
