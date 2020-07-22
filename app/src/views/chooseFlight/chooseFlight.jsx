@@ -7,7 +7,7 @@ import { utils } from '../../utils/utils.jsx'
 import './searchFlight.scss';
 import { dataService } from '../../services/dataService.jsx';
 
-class SearchFlight extends React.Component {
+class ChooseFlight extends React.Component {
     constructor(props) {
         super(props);
 
@@ -81,4 +81,4 @@ class SearchFlight extends React.Component {
         )
     }
 }
-export default SearchFlight; 
+export default ChooseFlight; 
