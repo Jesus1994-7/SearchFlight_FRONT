@@ -9,21 +9,25 @@ export const dataService = {
 
 function importInitialData() {
 
-    let questions = dataRepository.getAllQuestions();
-    let defaultQuestions = utils.systemSecretQuestions();
-    questions = Array.prototype.push.apply(questions, defaultQuestions);
+    dataRepository.getAllQuestions()
+        .then(questions => {
+            let defaultQuestions = utils.systemSecretQuestions();
+            questions = Array.prototype.push.apply(questions, defaultQuestions);
+            //delete repetidos
+            //questions = [...new Set(questions.map(item => item.questionSecret))];
+            valuesQuestions(questions);
+        });
 
-    //questions = [...new Set(questions.map(item => item.questionSecret))];
-    valuesQuestions(questions);
 
-    let iataCodes = dataRepository.getAllIataCodes();
-    valuesIataCodes(iataCodes);
+    dataRepository.getAllIataCodes()
+        .then(iataCodes => valuesIataCodes(iataCodes));
 
-    let countries = dataRepository.getAllCountries();
-    valuesCountries(countries);
+
+    dataRepository.getAllCountries()
+        .then(countries => valuesCountries(countries));
 
     dataRepository.getAllCurrencies()
-    .then(currencies =>valuesCurrencies(currencies))
+        .then(currencies => valuesCurrencies(currencies));
 };
 
 function exchange(currencyA, currencyB, quantity) {
@@ -34,7 +38,7 @@ function exchange(currencyA, currencyB, quantity) {
     };
 
     let result = dataRepository.getExchangeRatio(currencies)
-    .then(res => { return res.exchange * quantity;})
-    .catch(error => { });
+        .then(res => { return res.exchange * quantity; })
+        .catch(error => { });
     return result;
 }
