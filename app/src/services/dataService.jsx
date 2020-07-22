@@ -22,18 +22,6 @@ function importInitialData() {
     let countries = dataRepository.getAllCountries();
     valuesCountries(countries);
 
-<<<<<<< HEAD
-    let currencies = dataRepository.getAllCurrencies();
-    valuesCurrencies(currencies);
-
-    /*const token = localStorage.getItem('authToken')
-    if(!user && token){
-        let user = userRepository.getUserbyToken();
-        loginbyToken(user);
-    }*/
-    
-};
-=======
     dataRepository.getAllCurrencies()
     .then(currencies =>valuesCurrencies(currencies))
 };
@@ -50,4 +38,3 @@ function exchange(currencyA, currencyB, quantity) {
     .catch(error => { });
     return result;
 }
->>>>>>> feature/exchange
