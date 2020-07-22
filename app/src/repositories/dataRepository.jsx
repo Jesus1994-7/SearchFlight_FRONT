@@ -1,12 +1,13 @@
 import axios from 'axios';
 
-const EMPTY = '';
+const EMPTY = [];
 
 export const dataRepository = {
     getAllQuestions,
     getAllIataCodes,
     getAllCountries,
-    getAllCurrencies
+    getAllCurrencies,
+    getExchangeRatio
 };
 
 
@@ -38,4 +39,14 @@ async function getAllCurrencies() {
     }
     catch (error) { return EMPTY; }
 };
+async function getExchangeRatio(currencies) {
+    try {
+        const res = await axios.post(`http://localhost:3005/data/exchagerate`,currencies);
+        return res.data;
+    }
+    catch (error) {
+        throw Error(error);
+    }
+};
+
 

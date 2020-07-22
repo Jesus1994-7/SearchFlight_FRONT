@@ -1,10 +1,10 @@
 const initialState = {
     user: {},
     token: '',
-    questionsList: {},
-    iataCodesList: {},
-    countriesList: {},
-    currenciesList: {}
+    questionsList: [],
+    iataCodesList: [],
+    countriesList: [],
+    currenciesList: []
 }
 
 export default function reducer(state = initialState, action) {

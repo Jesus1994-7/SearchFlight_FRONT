@@ -1,6 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+<<<<<<< HEAD
 //import { useSelector } from 'react-redux';
+=======
+
+import Exchange from '../../components/exchange/exchange.jsx'
+>>>>>>> feature/exchange
 import { dataService } from '../../services/dataService';
 
 import './landingPage.css';
@@ -31,6 +36,7 @@ class LandingPage extends React.Component {
                     <img src="" alt="" />
                     <img src="" alt="" />
                 </div>
+                <Exchange/>
                 <section className="offers">
                     <p>AeroFlot special offers</p>
                     <NavLink exact to="/offers">
