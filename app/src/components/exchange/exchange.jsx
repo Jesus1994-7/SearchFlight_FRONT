@@ -17,7 +17,6 @@ class ExchangeComp extends React.Component {
 
     setCurrency = (currency, id) => {
         this.state.currency.splice(id, 1, currency);
-        console.log(this.state.currency);
     }
 
     handleChange = (ev) => {
@@ -28,7 +27,6 @@ class ExchangeComp extends React.Component {
         ev.preventDefault();
         let result;
         let num = ev.target.num.value;
-        console.log("num: " + num);
         try {
             if (utils.isNullOrEmpty(this.state.currency[0])
                 || utils.isNullOrEmpty(this.state.currency[1])
@@ -39,7 +37,6 @@ class ExchangeComp extends React.Component {
                 dataService.exchange(this.state.currency[0], this.state.currency[1], num)
                     .then(result => this.setState({ total: result }));
             }
-
         } catch (error) {
             console.log(error);
             result = 0;
@@ -54,7 +51,7 @@ class ExchangeComp extends React.Component {
                     Divisa Cambio: <CurrencyList id={1} setCurrency={this.setCurrency} readOnly />
                     <br />
                     Cantidad para cambiar:  <input type="text" placeholder="0" name="num" value={this.state.num}
-                        onChange={this.handleChange} />
+                        onChange={this.handleChange}/>
                     <button type="submit">Calculate!</button>
 
                 </form>

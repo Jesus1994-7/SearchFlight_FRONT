@@ -9,7 +9,6 @@ class CurrencyList extends React.Component {
 
     render() {
         return (
-
             <select defaultValue={this.props.selected} onChange={
                 e => this.props.setCurrency(
                     e.target.value, this.props.id
@@ -22,7 +21,6 @@ class CurrencyList extends React.Component {
                     </option>
                 ))}
             </select>
-
         )
     }
 }
