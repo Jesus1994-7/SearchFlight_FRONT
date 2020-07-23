@@ -3,7 +3,7 @@ import React from 'react';
 import './ChooseFlightItem.scss';
 
 const ChooseFlightItem = ({ flight }) => {
-    return <div>
+    return( <div>
                 <label>Salida</label>
                     <p>{flight.takeOffDate}</p>
                     <p>{flight.takeOffAirport}</p>
@@ -22,6 +22,6 @@ const ChooseFlightItem = ({ flight }) => {
                     <p>{flight.price}</p>
 
                     <button>Comprar</button>
-            </div>
+            </div>)
 }
 export default ChooseFlightItem;
