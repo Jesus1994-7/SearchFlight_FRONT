@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { dataService } from '../../services/dataService.jsx';
 
-import { ChooseFlightItem } from '../../components/'
+import { ChooseFlightItem } from '../../components/chooseFlightItem/ChooseFlightItem.jsx';
 
 import './chooseFlight.scss';
 
