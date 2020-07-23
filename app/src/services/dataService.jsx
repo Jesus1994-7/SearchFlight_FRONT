@@ -11,10 +11,8 @@ function importInitialData() {
 
     dataRepository.getAllQuestions()
         .then(questions => {
-            let defaultQuestions = utils.systemSecretQuestions();
-            questions = Array.prototype.push.apply(questions, defaultQuestions);
-            //delete repetidos
-            //questions = [...new Set(questions.map(item => item.questionSecret))];
+            questions = questions.concat(utils.systemSecretQuestions());
+            questions = [...new Set(questions.map(item => item.questionSecret))];
             valuesQuestions(questions);
         });
 
