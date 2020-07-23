@@ -11,13 +11,11 @@ export const userService = {
 
 function loginServ(credentials) {
     userRepository.login(credentials)
-        .then(res => {login(res)
+        .then(res => {
+            login(res)
             localStorage.setItem('authToken', res.token);
         })
-        .catch(error => console.log(error))
-    //console.log(logged);
-    //login(logged);
-    
+        .catch(error => console.log(error))    
 };
 function logoutServ() {
     localStorage.removeItem('authToken');
