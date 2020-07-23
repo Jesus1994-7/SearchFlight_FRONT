@@ -33,6 +33,12 @@ export const logout = async() => {
         });
     
 }
+export const valuesAirports = async (airportsList) => {
+    store.dispatch({
+        type: 'AIRPORTS',
+        payload: airportsList
+    });
+}
 
 export const valuesQuestions = async (questionsList) => {
     store.dispatch({
