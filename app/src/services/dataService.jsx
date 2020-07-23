@@ -11,8 +11,9 @@ function importInitialData() {
 
     dataRepository.getAllQuestions()
         .then(questions => {
-            questions = questions.concat(utils.systemSecretQuestions());
+           questions = questions.concat(utils.systemSecretQuestions());
             questions = [...new Set(questions.map(item => item.questionSecret))];
+            questions = questions.reduce((gang,questionSecret)=>[...gang,{questionSecret}],[])
             valuesQuestions(questions);
         });
 
