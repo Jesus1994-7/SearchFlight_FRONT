@@ -7,7 +7,8 @@ export const dataRepository = {
     getAllIataCodes,
     getAllCountries,
     getAllCurrencies,
-    getExchangeRatio
+    getExchangeRatio,
+    getAllChooseFlights
 };
 
 
@@ -48,5 +49,14 @@ async function getExchangeRatio(currencies) {
         throw Error(error);
     }
 };
+async function getAllChooseFlights(DateAndAirports) {
+    try {
+        const res = await axios.post(`http://localhost:3005/flight/search`, DateAndAirports);
+        //console.log(res.data);
+        return res.data;
+    } catch (error) {
+        throw Error(error);
+    }
+}
 
 

@@ -4,7 +4,8 @@ const initialState = {
     questionsList: [],
     iataCodesList: [],
     countriesList: [],
-    currenciesList: []
+    currenciesList: [],
+    flightsList: []
 }
 
 export default function reducer(state = initialState, action) {
@@ -45,6 +46,11 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 currenciesList: action.payload
+            }
+        case 'FLIGHTS':
+            return {
+                ...state,
+                flightsList: action.payload
             }
         default:
             return state

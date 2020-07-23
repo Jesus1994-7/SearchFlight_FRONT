@@ -1,11 +1,11 @@
 import React from 'react';
-import axios from 'axios'
 
-import { validations } from '../../utils/validations.jsx';
-import { utils } from '../../utils/utils.jsx'
-
-import './searchFlight.scss';
+import { connect } from 'react-redux';
 import { dataService } from '../../services/dataService.jsx';
+
+import { ChooseFlightItem } from '../../components/'
+
+import './chooseFlight.scss';
 
 class ChooseFlight extends React.Component {
     constructor(props) {
@@ -25,22 +25,9 @@ class ChooseFlight extends React.Component {
     }
 
     componentDidMount(){
-        axios.get(`http://localhost:3005/flight/search`)
-            .then(res => {
-                const flight = res.data;
-                console.log(flight);
-                this.setState({
-                    idFlight: flight.id,
-                    takeOffDate: flight.takeOffDate,
-                    landingAirport: flight.LandingAirportId,
-                    takeOffAirport: flight.TakeOffAirportId,
-                    landingDate: flight.landingDate,
-                    company: flight.CompanyId,
-                    plane: flight.PlaneId,
-                    price: flight.price
-                })
-            })
-            .catch(error => console.log(error))
+
+        console.log(dataService.getChooseFlights(6, 2, "2020-07-17"));
+        
     }
 
     handleChange = (ev) => {
@@ -49,36 +36,11 @@ class ChooseFlight extends React.Component {
 
     render() {
         return (
-            <div>
-                <div>
-                    <label>Salida</label>
-                    <p onChange={this.handleChange}>{this.state.takeOffDate}</p>
-                </div>
-                <div>
-                    <p onChange={this.handleChange}>{this.state.takeOffAirport}</p>
-                    <p onChange={this.handleChange}>{this.state.landingAirport}</p>
-                </div>
-                <div>
-                    <label>Llegada</label>
-                    <p onChange={this.handleChange}>{this.state.landingDate}</p>
-                </div>
-                <div>
-                    <label>Aerolínea</label>
-                    <p  onChange={this.handleChange}>{this.state.company}</p>
-                </div>
-                <div>
-                    <label>Vuelo</label>
-                    <p  onChange={this.handleChange}>{this.state.plane}</p>
-                </div>
-                <div>
-                    <label>Precio</label>
-                    <p  onChange={this.handleChange}>{this.state.price}</p>
-                </div>
-                <div>
-                    <button>Comprar</button>
-                </div>
+            <div >
+                 {this.props.flights?.map(flight => <ChooseFlightItem key={flight.id} flight={flight} />)}
             </div>
         )
     }
 }
-export default ChooseFlight; 
+const mapStateToProps = ({flightsList}) => ({flights: flightsList})
+export default connect(mapStateToProps)(ChooseFlight);

@@ -1,10 +1,11 @@
 import { dataRepository } from '../repositories/dataRepository.jsx';
 import { utils } from "../utils/utils.jsx";
-import { valuesQuestions, valuesIataCodes, valuesCountries, valuesCurrencies } from '../redux/actions.js';
+import { valuesQuestions, valuesIataCodes, valuesCountries, valuesCurrencies, chooseFlights } from '../redux/actions.js';
 
 export const dataService = {
     importInitialData,
-    exchange
+    exchange,
+    getChooseFlights
 };
 
 function importInitialData() {
@@ -41,3 +42,14 @@ function exchange(currencyA, currencyB, quantity) {
         .catch(error => { });
     return result;
 }
+function getChooseFlights(TakeOffAirportId,LandingAirportId,takeOffDate) {
+    const flights = {
+        TakeOffAirportId : TakeOffAirportId,
+        LandingAirportId : LandingAirportId,
+        takeOffDate : takeOffDate
+    };
+
+    dataRepository.getAllChooseFlights(flights)
+        .then(flights => {chooseFlights(flights)})
+        .catch(error => console.log(error));
+};

@@ -9,7 +9,7 @@ import Profile from './views/profile/profile.jsx';
 import LandingPage from './views/landingPage/landingPage.jsx';
 import Header from './components/header/header.jsx';
 import Footer from './components/footer/footer.jsx';
-import SearchFlight from './views/searchFlight/searchFlight.jsx';
+import ChooseFlight from './views/chooseFlight/chooseFlight.jsx';
 
 //import CSS
 import './App.css';
@@ -30,7 +30,7 @@ export default function App() {
                   <Route path="/register" exact component={Register} />
                   <Route path="/login" exact component={Login} />
                   <Route path="/profile" exact component={Profile} />
-                  <Route path="/search" exact component={SearchFlight}/>
+                  <Route path="/search" exact component={ChooseFlight}/>
               </Switch>
 
               <Footer />
