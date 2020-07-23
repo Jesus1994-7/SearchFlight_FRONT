@@ -58,7 +58,7 @@ class ExchangeComp extends React.Component {
                     <button type="submit">Calculate!</button>
 
                 </form>
-                <input type="text" placeholder="0" name="total" value={this.state.total} />
+                <p>{this.state.total}</p>
             </div>
         )
     }
