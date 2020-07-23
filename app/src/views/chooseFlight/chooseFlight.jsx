@@ -26,7 +26,7 @@ class ChooseFlight extends React.Component {
 
     componentDidMount(){
 
-        console.log(dataService.getChooseFlights(6, 2, "2020-07-17"));
+        dataService.getChooseFlights(6, 2, "2020-07-17");
         
     }
 
