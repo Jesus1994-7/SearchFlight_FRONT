@@ -4,7 +4,7 @@ import {
     valuesQuestions, valuesIataCodes,
     valuesCountries, valuesCurrencies,
     valuesAirports
-} from '../redux/actions.js';
+} from '../redux/actions/initialData.js';
 
 export const dataService = {
     importInitialData,

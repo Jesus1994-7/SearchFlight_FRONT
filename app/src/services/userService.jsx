@@ -1,5 +1,4 @@
-import { login } from '../redux/actions.js';
-import { logout } from '../redux/actions.js';
+import { login, logout } from '../redux/actions/user.js';
 import { userRepository } from '../repositories/userRepository.jsx';
 
 export const userService = {
@@ -15,12 +14,12 @@ function loginServ(credentials) {
             login(res)
             localStorage.setItem('authToken', res.token);
         })
-        .catch(error => console.log(error))    
+        .catch(error => console.log(error))
 };
 function logoutServ() {
     localStorage.removeItem('authToken');
     logout();
-    
+
 };
 function updateUser(user) {
     userRepository.updateUser(user);
