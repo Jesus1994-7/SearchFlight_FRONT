@@ -64,3 +64,9 @@ export const valuesCurrencies = async (currenciesList) => {
         payload: currenciesList
     });
 }
+export const valuesFlights = async (flightsList) => {
+    store.dispatch({
+        type: 'FLIGHTS',
+        payload: flightsList
+    });
+}
