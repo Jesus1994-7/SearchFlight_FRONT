@@ -8,7 +8,7 @@ export const dataRepository = {
     getAllCountries,
     getAllCurrencies,
     getExchangeRatio,
-    getAllChooseFlights
+    getAllAirports
 };
 
 
@@ -42,21 +42,21 @@ async function getAllCurrencies() {
 };
 async function getExchangeRatio(currencies) {
     try {
-        const res = await axios.post(`http://localhost:3005/data/exchagerate`,currencies);
+        const res = await axios.post(`http://localhost:3005/data/exchagerate`, currencies);
         return res.data;
     }
     catch (error) {
         throw Error(error);
     }
 };
-async function getAllChooseFlights(DateAndAirports) {
+async function getAllAirports(currencies) {
     try {
-        const res = await axios.post(`http://localhost:3005/flight/search`, DateAndAirports);
-        //console.log(res.data);
+        const res = await axios.get(`http://localhost:3005/data/airports`);
         return res.data;
-    } catch (error) {
+    }
+    catch (error) {
         throw Error(error);
     }
-}
+};
 
 

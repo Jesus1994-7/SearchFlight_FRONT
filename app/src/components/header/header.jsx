@@ -9,16 +9,13 @@ import { faEnvelope, faUser, faSearch } from '@fortawesome/free-solid-svg-icons'
 
 const Header = () => {
 
-    const user = useSelector(state => state.user);
-    console.table(user);
-
-    
+    const user = useSelector(state => state.user);    
         return (
             <header className="comp-Header">
                 <div>
                     <NavLink exact to="/">
                         <img src="" alt="" />
-                    </NavLink>
+                    </NavLink> 
                 </div>
 
                 <div>

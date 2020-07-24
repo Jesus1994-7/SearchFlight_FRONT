@@ -33,6 +33,12 @@ export const logout = async() => {
         });
     
 }
+export const valuesAirports = async (airportsList) => {
+    store.dispatch({
+        type: 'AIRPORTS',
+        payload: airportsList
+    });
+}
 
 export const valuesQuestions = async (questionsList) => {
     store.dispatch({
@@ -58,7 +64,7 @@ export const valuesCurrencies = async (currenciesList) => {
         payload: currenciesList
     });
 }
-export const chooseFlights = async (flightsList) => {
+export const valuesFlights = async (flightsList) => {
     store.dispatch({
         type: 'FLIGHTS',
         payload: flightsList

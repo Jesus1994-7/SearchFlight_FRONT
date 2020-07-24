@@ -8,9 +8,7 @@ axios.interceptors.request.use(function(config) {
         newConfig.headers = {
             ...newConfig.headers,
             authorization: token
-            
         }
-        console.log(token)
     }
     return newConfig;
 }, function(error) {
