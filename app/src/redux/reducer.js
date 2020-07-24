@@ -5,7 +5,8 @@ const initialState = {
     iataCodesList: [],
     countriesList: [],
     currenciesList: [],
-    airportsList: []
+    airportsList: [],
+    flightList: []
 }
 
 export default function reducer(state = initialState, action) {
@@ -52,6 +53,13 @@ export default function reducer(state = initialState, action) {
                 currenciesList: action.payload
             }
         default:
-            return state
+            return state;
+        case 'FLIGHTS':
+            return {
+                ...state,
+                flightsList: action.payload
+            }
+        default:
+            return state;
     }
 }
