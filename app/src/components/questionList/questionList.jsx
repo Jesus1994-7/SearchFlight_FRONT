@@ -21,5 +21,5 @@ class QuestionList extends React.Component {
     }
 }
 
-const mapStateToProps = ({ questionList }) => ({ questions: questionList })
+const mapStateToProps = ({ initialData }) => ({ questions: initialData.questionList })
 export default connect(mapStateToProps)(QuestionList);

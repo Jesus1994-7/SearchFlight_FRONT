@@ -23,7 +23,7 @@ class SearchFlightComp extends React.Component {
         this.setState({ [ev.target.name]: ev.target.type === 'string' ? +ev.target.value : ev.target.value });
     }
 
-    calculate = (ev) => {
+    searchFlights = (ev) => {
         ev.preventDefault();
 
         try {
@@ -45,7 +45,7 @@ class SearchFlightComp extends React.Component {
     }
     render() {
         return (
-            <form onSubmit={this.calculate}>
+            <form onSubmit={this.searchFlights}>
                 <span>{this.state.msgError}</span>
                  Aeropuerto Salida <AirportList id={0} setAirport={this.setAirport} readOnly />
                     Aeropuerto Vuelta: <AirportList id={1} setAirport={this.setAirport} readOnly />

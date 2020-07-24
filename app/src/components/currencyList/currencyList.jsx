@@ -25,5 +25,5 @@ class CurrencyList extends React.Component {
     }
 }
 
-const mapStateToProps = ({ currenciesList }) => ({ currencies: currenciesList })
+const mapStateToProps = ({ initialData }) => ({ currencies: initialData.currenciesList })
 export default connect(mapStateToProps)(CurrencyList);

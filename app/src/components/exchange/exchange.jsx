@@ -1,7 +1,7 @@
 import React from 'react';
 import './exchange.css';
 import CurrencyList from '../currencyList/currencyList.jsx';
-import { dataService } from '../../services/dataService.jsx';
+import { currencyService } from '../../services/currencyService.jsx';
 import { utils } from '../../utils/utils';
 
 class ExchangeComp extends React.Component {
@@ -34,7 +34,7 @@ class ExchangeComp extends React.Component {
                 result = 0;
             } else if (this.state.currency[0] === this.state.currency[1]) { result = num; }
             else {
-                dataService.exchange(this.state.currency[0], this.state.currency[1], num)
+                currencyService.exchange(this.state.currency[0], this.state.currency[1], num)
                     .then(result => this.setState({ total: result }));
             }
         } catch (error) {

@@ -25,5 +25,5 @@ class AirportList extends React.Component {
     }
 }
 
-const mapStateToProps = ({ airportsList }) => ({ airports: airportsList })
+const mapStateToProps = ({ initialData }) => ({ airports: initialData.airportsList })
 export default connect(mapStateToProps)(AirportList);

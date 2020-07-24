@@ -1,8 +1,5 @@
 import axios from 'axios';
 
-//const EMPTY = '';
-
-
 export const userRepository = {
     login,
     updateUser,
@@ -12,7 +9,7 @@ export const userRepository = {
 
 async function login(credentials) {
     try {
-        const res = await axios.post(`http://localhost:3005/main/login`, credentials);
+        const res = await axios.post('main/login', credentials);
         return res.data;
         
     }
@@ -23,12 +20,12 @@ async function login(credentials) {
 
 function updateUser(user) {
 
-    axios.post(`http://localhost:3005/user/modify`, user)
+    axios.post(`user/modify`, user)
         .then()
         .catch(error => { throw Error(error) });
 };
 function createUser(user) {
-    axios.post(`http://localhost:3005/main/register`, user)
+    axios.post(`main/register`, user)
         .then()
         .catch(error => { throw Error(error) });
 };

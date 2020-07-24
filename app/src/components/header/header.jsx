@@ -9,7 +9,7 @@ import { faEnvelope, faUser, faSearch } from '@fortawesome/free-solid-svg-icons'
 
 const Header = () => {
 
-    const user = useSelector(state => state.user);    
+    const user = useSelector(state => state.user); //comprobar que user.user   
         return (
             <header className="comp-Header">
                 <div>

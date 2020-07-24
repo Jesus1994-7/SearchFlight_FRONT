@@ -4,11 +4,10 @@ import {
     valuesQuestions, valuesIataCodes,
     valuesCountries, valuesCurrencies,
     valuesAirports
-} from '../redux/actions.js';
+} from '../redux/actions/initialData.js';
 
 export const dataService = {
     importInitialData,
-    exchange,
 };
 
 function importInitialData() {
@@ -32,17 +31,4 @@ function importInitialData() {
 
     dataRepository.getAllCurrencies()
         .then(currencies => valuesCurrencies(currencies));
-};
-
-function exchange(currencyA, currencyB, quantity) {
-
-    const currencies = {
-        baseCurrencyCode: currencyA,
-        changeCurrencyCode: currencyB
-    };
-
-    let result = dataRepository.getExchangeRatio(currencies)
-        .then(res => { return res.exchange * quantity; })
-        .catch(error => { });
-    return result;
 };

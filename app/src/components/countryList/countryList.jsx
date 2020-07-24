@@ -25,5 +25,5 @@ class CountryList extends React.Component {
     }
 }
 
-const mapStateToProps = ({ countriesList }) => ({ countries: countriesList })
+const mapStateToProps = ({ initialData }) => ({ countries: initialData.countriesList })
 export default connect(mapStateToProps)(CountryList);
