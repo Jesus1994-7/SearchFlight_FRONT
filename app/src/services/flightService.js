@@ -1,6 +1,6 @@
-import { flightRepository } from '../repositories/flightRespository.jsx';
+import { flightRepository } from '../repositories/flightRespository.js';
 import { valuesFlights } from '../redux/actions/flights.js'
-import { utils } from '../utils/utils.jsx';
+import { utils } from '../utils/utils.js';
 
 export const flightService = {
     getFlights

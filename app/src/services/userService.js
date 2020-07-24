@@ -1,5 +1,5 @@
 import { login, logout } from '../redux/actions/user.js';
-import { userRepository } from '../repositories/userRepository.jsx';
+import { userRepository } from '../repositories/userRepository.js';
 
 export const userService = {
     loginServ,

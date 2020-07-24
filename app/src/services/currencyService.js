@@ -1,4 +1,4 @@
-import { currencyRepository } from '../repositories/currencyRepository.jsx';
+import { currencyRepository } from '../repositories/currencyRepository.js';
 
 export const currencyService = {
     exchange

@@ -1,11 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 
-import { validations } from "../../utils/validations.jsx";
-import { utils } from "../../utils/utils.jsx";
+import { validations } from "../../utils/validations.js";
+import { utils } from "../../utils/utils.js";
 
 import './profile.css';
-import {userService} from '../../services/userService.jsx';
+import {userService} from '../../services/userService.js';
 
 class Profile extends React.Component {
     constructor(props) {

@@ -1,8 +1,8 @@
 import React from "react";
 
-import { validations } from "../../utils/validations.jsx";
-import { utils } from "../../utils/utils.jsx";
-import { userService } from "../../services/userService.jsx";
+import { validations } from "../../utils/validations.js";
+import { utils } from "../../utils/utils.js";
+import { userService } from "../../services/userService.js";
 
 import './register.css';
 

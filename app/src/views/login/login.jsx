@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { userService } from '../../services/userService.jsx';
-import { validations } from "../../utils/validations.jsx";
-import { utils } from "../../utils/utils.jsx";
+import { userService } from '../../services/userService.js';
+import { validations } from "../../utils/validations.js";
+import { utils } from "../../utils/utils.js";
 
 class Login extends React.Component {
     constructor(props) {

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { dataService } from '../../services/dataService.jsx';
+import { dataService } from '../../services/dataService.js';
 
 import  ChooseFlightItem  from '../../components/chooseFlightItem/ChooseFlightItem.jsx';
 

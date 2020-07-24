@@ -1,4 +1,4 @@
-import { utils } from "./utils.jsx";
+import { utils } from "./utils.js";
 
 const EMPTY = "";
 const MIN_PASSWORD_CHAR = 6;

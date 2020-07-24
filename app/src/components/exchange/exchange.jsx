@@ -1,8 +1,8 @@
 import React from 'react';
 import './exchange.css';
 import CurrencyList from '../currencyList/currencyList.jsx';
-import { currencyService } from '../../services/currencyService.jsx';
-import { utils } from '../../utils/utils';
+import { currencyService } from '../../services/currencyService.js';
+import { utils } from '../../utils/utils.js';
 
 class ExchangeComp extends React.Component {
     constructor(props) {

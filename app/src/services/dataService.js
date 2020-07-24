@@ -1,5 +1,5 @@
-import { dataRepository } from '../repositories/dataRepository.jsx';
-import { utils } from "../utils/utils.jsx";
+import { dataRepository } from '../repositories/dataRepository.js';
+import { utils } from "../utils/utils.js";
 import {
     valuesQuestions, valuesIataCodes,
     valuesCountries, valuesCurrencies,

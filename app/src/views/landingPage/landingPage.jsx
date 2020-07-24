@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import Exchange from '../../components/exchange/exchange.jsx';
 import Search from '../../components/searchFlight/searchFlight.jsx';
-import { dataService } from '../../services/dataService';
+import { dataService } from '../../services/dataService.js';
 
 import './landingPage.css';
 
