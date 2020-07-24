@@ -1,7 +1,7 @@
 import { FLIGHTS } from "../types/flights.js";
 
 const initialState = {
-    flightList: []
+    flightsList: []
 };
 
 
