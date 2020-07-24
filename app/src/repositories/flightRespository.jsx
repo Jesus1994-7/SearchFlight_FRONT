@@ -5,7 +5,7 @@ export const flightRepository = {
 };
 async function getFlights(dataFlights) {
     try {
-        const res = await axios.post(`http://localhost:3005/data/searchFlight`, dataFlights);
+        const res = await axios.post(`data/searchFlight`, dataFlights);
         return res.data;
     } catch (error) {
         throw Error(error);
