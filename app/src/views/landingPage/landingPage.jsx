@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import Exchange from '../../components/exchange/exchange.jsx'
+import Exchange from '../../components/exchange/exchange.jsx';
+import Search from '../../components/searchFlight/searchFlight.jsx';
 import { dataService } from '../../services/dataService';
 
 import './landingPage.css';
@@ -32,7 +33,10 @@ class LandingPage extends React.Component {
                     <img src="" alt="" />
                     <img src="" alt="" />
                 </div>
+
+                <Search/>
                 <Exchange/>
+
                 <section className="offers">
                     <p>AeroFlot special offers</p>
                     <NavLink exact to="/offers">
