@@ -1,15 +1,15 @@
 import React from 'react';
 import './searchFlight.css'; 
 import AirportList from '../airportList/airportList.jsx';
-import { dataService } from '../../services/dataService.jsx';
+import { flightService } from '../../services/flightService.jsx';
 
 class SearchFlightComp extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            dateLanding: "",
-            dateTakeoff: "",
+            datego: "",
+            datereturn: "",
             airports: [" ", " "],
             msgError: ""
         }
@@ -27,11 +27,17 @@ class SearchFlightComp extends React.Component {
         ev.preventDefault();
 
         try {
-            if (this.state.airports[0] === this.state.airports[1]) { this.setState({ msgError: " " }) }
-            else {/*
-                dataService.exchange(this.state.airports[0], this.state.airports[1],
-                                     this.state.dateLanding, this.state.dateTakeoff)
-                    .then(result => this.setState({  }));*/
+            if (this.state.airports[0] === this.state.airports[1]) {
+                 this.setState({ msgError: " Los aeropuertos tienen que ser diferentes. " });
+                 }
+            else {
+                flightService.getFlights(this.state.airports[0], this.state.airports[1],
+                                     this.state.datego, this.state.datereturn)
+                    .then(result =>{
+                        setTimeout(() => {
+                            //redirrecion a web de vuelos
+                        }, 2500);
+                    });
             }
         } catch (error) {
             console.log(error);
@@ -40,6 +46,7 @@ class SearchFlightComp extends React.Component {
     render() {
         return (
                 <form onSubmit={this.calculate}>
+                    {msgError}
                     Aeropuerto Salida <AirportList id={0} setAirport={this.setAirport} readOnly />
                     Aeropuerto Vuelta: <AirportList id={1} setAirport={this.setAirport} readOnly />
                     <br />
