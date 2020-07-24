@@ -1,6 +1,7 @@
 import React from 'react';
 import './searchFlight.css';
 import AirportList from '../airportList/airportList.jsx';
+import { utils } from '../../utils/utils.jsx';
 import { flightService } from '../../services/flightService.jsx';
 
 class SearchFlightComp extends React.Component {
@@ -29,16 +30,23 @@ class SearchFlightComp extends React.Component {
         try {
             if (this.state.airports[0] === this.state.airports[1]) {
                 this.setState({ msgError: " Los aeropuertos tienen que ser diferentes. " });
+                return;
             }
-            else {
-                flightService.getFlights(this.state.airports[0], this.state.airports[1],
-                    this.state.datego, this.state.datereturn)
-                    .then(result => {
-                        setTimeout(() => {
-                            //redirrecion a web de vuelos
-                        }, 2500);
-                    });
+            if (utils.isNullOrEmpty(this.state.airports[0]) || utils.isNullOrEmpty(this.state.airports[1])) {
+                this.setState({ msgError: " Tiene que seleccionar aeropuertos. " });
+                return;
             }
+            this.setState({ datego: "2020-07-01" });
+            if (utils.isNullOrEmpty(this.state.datego)) {
+                this.setState({ msgError: " Tiene que tener fecha de ida. " });
+                return;
+            }
+            flightService.getFlights(this.state.airports[0], this.state.airports[1],
+                this.state.datego, this.state.datereturn)
+            setTimeout(() => {
+                //redirrecion a web de vuelos
+            }, 2500);
+
         } catch (error) {
             console.log(error);
         }
@@ -50,7 +58,7 @@ class SearchFlightComp extends React.Component {
                  Aeropuerto Salida <AirportList id={0} setAirport={this.setAirport} readOnly />
                     Aeropuerto Vuelta: <AirportList id={1} setAirport={this.setAirport} readOnly />
                 <br />
-                    Fecha de salida:
+                    Fecha de salida :
                     Fecha de vuelta :
                 <button type="submit">Donde están mis vuelos!</button>
 

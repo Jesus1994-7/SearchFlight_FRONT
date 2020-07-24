@@ -6,13 +6,14 @@ export const flightService = {
     getFlights
 };
 
-function getFlights(TakeOffAirportId, LandingAirportId, takeOffDate) {
+function getFlights(TakeOffAirportId, LandingAirportId, takeOffDate,dateReturn) {
     const dataFlights = {
         TakeOffAirportId: TakeOffAirportId,
         LandingAirportId: LandingAirportId,
+        takeOffDate : takeOffDate
     };
-
-    flightRepository.getFlights(dataFlights)
+    
+    flightRepository.getFlightsGo(dataFlights)
         .then(flights => { valuesFlights(flights) })
         .catch(error => console.log(error));
 

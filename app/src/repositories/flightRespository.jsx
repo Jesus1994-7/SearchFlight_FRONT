@@ -1,13 +1,14 @@
 import axios from 'axios';
 
+const EMPTY = [];
+
 export const flightRepository = {
-    getFlights
+    getFlightsGo
 };
-async function getFlights(dataFlights) {
+
+async function getFlightsGo(dataFlights) {
     try {
-        const res = await axios.post(`data/searchFlight`, dataFlights);
+        const res = await axios.post('data/searchFlight', dataFlights);
         return res.data;
-    } catch (error) {
-        throw Error(error);
-    }
+    } catch (error) { return EMPTY; }
 }
