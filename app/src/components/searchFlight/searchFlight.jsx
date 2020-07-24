@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter} from 'react-router-dom';
 import './searchFlight.css';
 import AirportList from '../airportList/airportList.jsx';
 import { utils } from '../../utils/utils.js';
@@ -44,8 +45,8 @@ class SearchFlightComp extends React.Component {
             flightService.getFlights(this.state.airports[0], this.state.airports[1],
                 this.state.datego, this.state.datereturn)
             setTimeout(() => {
-                //redirrecion a web de vuelos
-            }, 2500);
+                this.props.history.push('/search');
+            }, 1500);
 
         } catch (error) {
             console.log(error);
@@ -66,4 +67,4 @@ class SearchFlightComp extends React.Component {
         )
     }
 }
-export default SearchFlightComp;
+export default withRouter(SearchFlightComp);
