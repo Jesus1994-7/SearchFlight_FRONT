@@ -57,8 +57,6 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 flightsList: action.payload
             }
-        default:
-            return state;
         case 'FLIGHTS':
             return {
                 ...state,

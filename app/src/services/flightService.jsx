@@ -1,5 +1,6 @@
 import { flightRepository } from '../repositories/flightRespository.jsx';
-import {utils} from '../utils/utils.jsx';
+import { valuesFlights } from '../redux/actions.js'
+import { utils } from '../utils/utils.jsx';
 
 export const flightService = {
     getFlights
@@ -12,10 +13,10 @@ function getFlights(TakeOffAirportId, LandingAirportId, takeOffDate) {
     };
 
     flightRepository.getFlights(dataFlights)
-        .then(flights => { flightsList(flights) })
+        .then(flights => { valuesFlights(flights) })
         .catch(error => console.log(error));
 
-    if(!utils.isNullOrEmpty(takeOffDate)){ 
+    if (!utils.isNullOrEmpty(takeOffDate)) {
         //vuelta
     }
 };
