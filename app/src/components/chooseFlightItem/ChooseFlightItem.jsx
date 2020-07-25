@@ -1,27 +1,41 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import './ChooseFlightItem.scss';
 
-const ChooseFlightItem = ({ flight }) => {
-    return( <div>
-                <label>Salida</label>
-                    <p>{flight.takeOffDate}</p>
-                    <p>{flight.takeOffAirport}</p>
-                    <p>{flight.landingAirport}</p>
+class ChooseFlightItem extends React.Component {
 
-                    <label>Llegada</label>
-                    <p>{flight.landingDate}</p>
+    state = {}
 
-                    <label>Aerolínea</label>
-                    <p >{flight.company}</p>
 
-                    <label>Vuelo</label>
-                    <p >{flight.plane}</p>
+    render() {
+        return (
+            <div>
+                {this.props.flightsList?.map(flight => (
+                    <div>
+                        <label>Salida</label>
+                        <p>{flight.takeOffDate}</p>
 
-                    <label>Precio</label>
-                    <p>{flight.price}</p>
+                        <p>{flight.takeOffAirport}</p>
+                        <p>{flight.landingAirport}</p>
 
-                    <button>Comprar</button>
-            </div>)
+                        <label>Llegada</label>
+                        <p>{flight.landingDate}</p>
+
+                        <label>Aerolínea</label>
+                        <p>{flight.company}</p>
+
+                        <label>Vuelo</label>
+                        <p>{flight.plane}</p>
+
+                        <label>Precio</label>
+                        <p>{flight.price}</p>
+                        
+                    </div>
+                ))}
+            </div>
+        )
+    }
 }
-export default ChooseFlightItem;
+const mapStateToProps = ({ flights }) => ({ flightsList: flights.flightsList })
+export default connect(mapStateToProps)(ChooseFlightItem);

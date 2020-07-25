@@ -1,11 +1,13 @@
 import React from 'react';
-
+import { useSelector } from 'react-redux'
 import { connect } from 'react-redux';
-import { dataService } from '../../services/dataService.js';
+import { flightService } from '../../services/flightService.js';
 
 import  ChooseFlightItem  from '../../components/chooseFlightItem/ChooseFlightItem.jsx';
 
 import './chooseFlight.scss';
+import axios from 'axios';
+import { utils } from '../../utils/utils.js';
 
 class ChooseFlight extends React.Component {
     constructor(props) {
@@ -26,7 +28,7 @@ class ChooseFlight extends React.Component {
 
     componentDidMount(){
 
-        dataService.getChooseFlights(6, 2, "2020-07-17");
+        //flightService.getFlights();
         
     }
 
@@ -34,13 +36,25 @@ class ChooseFlight extends React.Component {
         this.setState({ [ev.target.name]: ev.target.type === 'string' ? +ev.target.value : ev.target.value});
     }
 
+    buyFlight = (ev) => {
+        ev.preventDefault();
+        const user = useSelector(state => state.user);
+        if(utils.isNullOrEmpty(user.id)){
+            this.props.history.push('/login');
+        }else {
+                axios.post('flighticket/create');
+                //flightService.getFlightTicket
+        }
+    }
+
     render() {
         return (
             <div >
-                 {this.props.flights?.map(flight => <ChooseFlightItem key={flight.id} flight={flight} />)}
+                 <ChooseFlightItem></ChooseFlightItem>
+                 <button onClick={this.buyFlight}>Comprar</button>
+                 <hr/>
             </div>
         )
     }
 }
-const mapStateToProps = ({flightsList}) => ({flights: flightsList})
-export default connect(mapStateToProps)(ChooseFlight);
+export default ChooseFlight;
