@@ -72,7 +72,7 @@ class Register extends React.Component {
     render() {
         return (
             <div className="comp-Register">
-                <div>
+
                     <span>{this.state.msgError}</span>
                     <input placeholder="Introduzca un username" type="text" name="username" value={this.state.username} onChange={this.handleChange}></input>
                     <input placeholder="Introduzca su nombre" type="text" name="name" value={this.state.name} onChange={this.handleChange}></input>
@@ -83,11 +83,11 @@ class Register extends React.Component {
                     <input placeholder="Introduzca su pasaporte" type="text" name="passport" value={this.state.passport} onChange={this.handleChange}></input>
                     <input placeholder="Introduzca una contraseña" type="password" name="password" value={this.state.password} onChange={this.handleChange}></input>
                     <input placeholder="Reescriba su contraseña" type="password" name="password2" value={this.state.password2} onChange={this.handleChange}></input>
-                    //<input placeholder="Write your question" type="text" name="questionSecret" value={this.state.questionSecret} onChange={this.handleChange}></input>
+                    {/*<input placeholder="Write your question" type="text" name="questionSecret" value={this.state.questionSecret} onChange={this.handleChange}></input>*/}
                     <input placeholder="Escriba una respuesta" type="text" name="answerSecret" value={this.state.answerSecret} onChange={this.handleChange}></input>
-                    //<input placeholder="Introduzca un pais de origen" type="text" name="country" value={this.state.country} onChange={this.handleChange}></input>
+                    {/*<input placeholder="Introduzca un pais de origen" type="text" name="country" value={this.state.country} onChange={this.handleChange}></input>*/}
                     <button onClick={this.createRegister}>Registrar</button>
-                </div>
+
             </div>
         );
     }
