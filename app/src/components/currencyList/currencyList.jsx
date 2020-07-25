@@ -1,5 +1,5 @@
 import React from 'react';
-import './currencyList.css';
+import './currencyList.scss';
 
 import { connect } from 'react-redux';
 

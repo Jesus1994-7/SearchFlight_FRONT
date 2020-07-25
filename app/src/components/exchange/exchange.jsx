@@ -1,5 +1,5 @@
 import React from 'react';
-import './exchange.css';
+import './exchange.scss';
 import CurrencyList from '../currencyList/currencyList.jsx';
 import { currencyService } from '../../services/currencyService.js';
 import { utils } from '../../utils/utils.js';

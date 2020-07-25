@@ -1,5 +1,5 @@
 import React from 'react';
-import './countryList.css';
+import './countryList.scss';
 
 import { connect } from 'react-redux';
 

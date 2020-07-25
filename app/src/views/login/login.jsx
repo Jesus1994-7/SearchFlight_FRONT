@@ -3,6 +3,7 @@ import React from 'react';
 import { userService } from '../../services/userService.js';
 import { validations } from "../../utils/validations.js";
 import { utils } from "../../utils/utils.js";
+import './login.scss';
 
 class Login extends React.Component {
     constructor(props) {

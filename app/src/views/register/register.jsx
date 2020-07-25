@@ -4,7 +4,7 @@ import { validations } from "../../utils/validations.js";
 import { utils } from "../../utils/utils.js";
 import { userService } from "../../services/userService.js";
 
-import './register.css';
+import './register.scss';
 
 class Register extends React.Component {
     constructor(props) {

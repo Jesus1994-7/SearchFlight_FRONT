@@ -5,7 +5,7 @@ import Exchange from '../../components/exchange/exchange.jsx';
 import Search from '../../components/searchFlight/searchFlight.jsx';
 import { dataService } from '../../services/dataService.js';
 
-import './landingPage.css';
+import './landingPage.scss';
 
 class LandingPage extends React.Component {
     constructor(props) {

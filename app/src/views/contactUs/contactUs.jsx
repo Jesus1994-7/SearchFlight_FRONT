@@ -4,7 +4,7 @@ import { utils } from "../../utils/utils.js";
 
 import { contactMsgService } from '../../services/contactMsgService.js';
 
-import './contactUs.css';
+import './contactUs.scss';
 
 class ContactUs extends React.Component {
     constructor(props) {

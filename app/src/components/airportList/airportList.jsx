@@ -1,5 +1,5 @@
 import React from 'react';
-import './airportList.css';
+import './airportList.scss';
 
 import { connect } from 'react-redux';
 

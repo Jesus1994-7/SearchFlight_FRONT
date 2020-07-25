@@ -4,7 +4,7 @@ import axios from 'axios';
 import { validations } from "../../utils/validations.js";
 import { utils } from "../../utils/utils.js";
 
-import './profile.css';
+import './profile.scss';
 import {userService} from '../../services/userService.js';
 
 class Profile extends React.Component {

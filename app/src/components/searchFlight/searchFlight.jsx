@@ -5,7 +5,7 @@ import AirportList from '../airportList/airportList.jsx';
 import { flightService } from '../../services/flightService.js';
 
 import { utils } from '../../utils/utils.js';
-import './searchFlight.css';
+import './searchFlight.scss';
 
 class SearchFlightComp extends React.Component {
     constructor(props) {
