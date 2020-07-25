@@ -1,9 +1,11 @@
 import React from 'react';
 import { withRouter} from 'react-router-dom';
-import './searchFlight.css';
+
 import AirportList from '../airportList/airportList.jsx';
-import { utils } from '../../utils/utils.js';
 import { flightService } from '../../services/flightService.js';
+
+import { utils } from '../../utils/utils.js';
+import './searchFlight.css';
 
 class SearchFlightComp extends React.Component {
     constructor(props) {

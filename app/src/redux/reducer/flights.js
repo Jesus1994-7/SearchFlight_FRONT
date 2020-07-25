@@ -4,7 +4,6 @@ const initialState = {
     flightsList: []
 };
 
-
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case FLIGHTS:
@@ -15,4 +14,4 @@ export default function reducer(state = initialState, action) {
         default:
             return state;
     }
-}
+};
