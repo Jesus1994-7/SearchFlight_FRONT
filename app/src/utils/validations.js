@@ -57,7 +57,7 @@ function credentialsValidation(credentials) {
 function contactMsgValidation(contactMsg) {
     let error = EMPTY;
 
-    if (utils.isNullOrEmpty(contactMsg.name)) { error += 'Nombre o Usuario '; }
+    if (utils.isNullOrEmpty(contactMsg.message)) { error += 'Mensaje '; }
     if (utils.isNullOrEmpty(contactMsg.subject)) { error += 'Asunto '; }
     if (utils.isNullOrEmpty(contactMsg.email)) { error += 'Email '; }
 
