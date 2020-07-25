@@ -10,42 +10,42 @@ import { faEnvelope, faUser, faSearch } from '@fortawesome/free-solid-svg-icons'
 const Header = () => {
 
     const user = useSelector(state => state.user); //comprobar que user.user   
-        return (
-            <header className="comp-Header">
-                <div>
-                    <NavLink exact to="/">
-                        <img src="" alt="" />
-                    </NavLink> 
-                </div>
+    return (
+        <header className="comp-Header">
+            <div>
+                <NavLink exact to="/">
+                    <img src="" alt="" />
+                </NavLink>
+            </div>
 
-                <div>
-                    <ul className="list-icons">
-                        <FontAwesomeIcon icon={faEnvelope} className="iconos" /> {/*CORREO*/}
-                        <li><FontAwesomeIcon icon={faUser} className="iconos" />  {/*CORREO*/}
-                            <ul>
+            <div>
+                <ul className="list-icons">
+                    <a href="/contactUs"><FontAwesomeIcon icon={faEnvelope} className="iconos" /></a>
+                    <li><FontAwesomeIcon icon={faUser} className="iconos" />
+                        <ul>
                             {user?.id
-                            ?
+                                ?
                                 <li>
                                     <a href="/profile" className="accesos">Profile</a>
                                     <a href="/" className="accesos">Logout</a>
                                 </li>
-                            :
-                                
+                                :
+
                                 <li>
                                     <a href="/login" className="accesos">Login</a>
                                     <a href="/register" className="accesos">Register</a>
                                 </li>
                             }
-                            </ul>
+                        </ul>
 
-                        </li>
-                        <li><a href="/search"><FontAwesomeIcon icon={faSearch} className="iconos" /></a></li>
-                    </ul>
-                </div>
-                            
-            </header>
-        );
-    }
+                    </li>
+                    <li><a href="/search"><FontAwesomeIcon icon={faSearch} className="iconos" /></a></li>
+                </ul>
+            </div>
+
+        </header>
+    );
+}
 
 
 export default Header;
