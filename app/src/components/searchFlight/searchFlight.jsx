@@ -19,6 +19,7 @@ class SearchFlightComp extends React.Component {
 
     setAirport = (airport, id) => {
         this.state.airports.splice(id, 1, airport);
+        console.log(airport)
     }
 
     handleChange = (ev) => {
@@ -37,7 +38,7 @@ class SearchFlightComp extends React.Component {
                 this.setState({ msgError: " Tiene que seleccionar aeropuertos. " });
                 return;
             }
-            this.setState({ datego: "2020-07-01" });
+            this.setState({ datego: "2020-07-17" });
             if (utils.isNullOrEmpty(this.state.datego)) {
                 this.setState({ msgError: " Tiene que tener fecha de ida. " });
                 return;
@@ -56,7 +57,7 @@ class SearchFlightComp extends React.Component {
         return (
             <form onSubmit={this.searchFlights}>
                 <span>{this.state.msgError}</span>
-                 Aeropuerto Salida <AirportList id={0} setAirport={this.setAirport} readOnly />
+                 Aeropuerto Salida <AirportList id={0} setAirport={this.setAirport} readOnly /> 
                     Aeropuerto Vuelta: <AirportList id={1} setAirport={this.setAirport} readOnly />
                 <br />
                     Fecha de salida :
