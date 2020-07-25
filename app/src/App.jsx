@@ -10,6 +10,7 @@ import LandingPage from './views/landingPage/landingPage.jsx';
 import Header from './components/header/header.jsx';
 import Footer from './components/footer/footer.jsx';
 import ChooseFlight from './views/chooseFlight/chooseFlight.jsx';
+import ContactUs from './views/contactUs/contactUs.jsx';
 
 //import CSS
 import './App.css';
@@ -21,16 +22,14 @@ export default function App() {
     return(
         <div>
           <Router>
-
- 
               <Header />
-
               <Switch>
                   <Route path="/" exact component={LandingPage} />
                   <Route path="/register" exact component={Register} />
                   <Route path="/login" exact component={Login} />
                   <Route path="/profile" exact component={Profile} />
                   <Route path="/search" exact component={ChooseFlight}/>
+                  <Route path="/contactUs" exact component={ContactUs}/>
               </Switch>
 
               <Footer />
