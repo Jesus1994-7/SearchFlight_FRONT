@@ -1,51 +1,61 @@
+import { withRouter,NavLink ,Link} from 'react-router-dom';
 import React from 'react';
-import { NavLink } from 'react-router-dom'
-import { useSelector } from 'react-redux';
 
 import './header.scss';
 //ICONOS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faUser, faSearch } from '@fortawesome/free-solid-svg-icons'
 
-const Header = () => {
+class Header extends React.Component {
+    constructor(props) {
+        super(props);
 
-    const user = useSelector(state => state.user); //comprobar que user.user   
-    return (
-        <header className="comp-Header">
-            <div>
-                <NavLink exact to="/">
-                    <img src="" alt="" />
-                </NavLink>
-            </div>
+        this.state = {
+            user: {}
+        }
+    }
+    componentDidMount() {
+        //llamar a user de redux 
+        //let userR = 
+        //this.setState({user:userR});
+    }
 
-            <div>
-                <ul className="list-icons">
-                    <a href="/contactUs"><FontAwesomeIcon icon={faEnvelope} className="iconos" /></a>
-                    <li><FontAwesomeIcon icon={faUser} className="iconos" />
-                        <ul>
-                            {user?.id
-                                ?
-                                <li>
-                                    <a href="/profile" className="accesos">Profile</a>
-                                    <a href="/" className="accesos">Logout</a>
-                                </li>
-                                :
+    render() {
+        return (
+            <header className="comp-Header">
+                <div>
+                    <NavLink exact to="/">
+                        <img src="" alt="" />
+                    </NavLink>
+                </div>
 
-                                <li>
-                                    <a href="/login" className="accesos">Login</a>
-                                    <a href="/register" className="accesos">Register</a>
-                                </li>
-                            }
-                        </ul>
+                <div>
+                    <ul className="list-icons">
+                        <Link to="/contactUs"><FontAwesomeIcon icon={faEnvelope} className="iconos"/></Link>
+                        <li><FontAwesomeIcon icon={faUser} className="iconos" />
+                            <ul>
+                                {this.state.user?.id
+                                    ?
+                                    <li>
+                                        <Link to="/profile" className="accesos">Profile</Link>
+                                        <Link to="/logOut" className="accesos">Logout</Link>
+                                    </li>
+                                    :
+                                    <li>
+                                        <Link to="/login" className="accesos">Login</Link>
+                                        <Link to="/register" className="accesos">Register</Link>
+                                    </li>
+                                }
+                            </ul>
 
-                    </li>
-                    <li><a href="/search"><FontAwesomeIcon icon={faSearch} className="iconos" /></a></li>
-                </ul>
-            </div>
+                        </li>
+                        <li><Link to="/"><FontAwesomeIcon icon={faSearch} className="iconos" /></Link></li>
+                    </ul>
+                </div>
 
-        </header>
-    );
+            </header>
+        );
+    }
 }
 
-
-export default Header;
+export default withRouter(Header);

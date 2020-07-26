@@ -64,8 +64,6 @@
        /* This is important for the show/hide CSS animation */
         max-height:0px;
         overflow:hidden;
-        
-       -webkit-transition:max-height 0.5s linear;
     }
 
     li:hover ul {
