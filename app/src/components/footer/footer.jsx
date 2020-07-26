@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './footer.scss';
 
 class Footer extends React.Component {
@@ -13,21 +13,15 @@ class Footer extends React.Component {
         return (
             <div className="comp-footer">
                 <div className="div-left">
-                    <p>Contact us</p>
-                    <button>900 901 529</button>
+                    <h4>Contact us</h4>
+                    <p>900 901 529</p>
 
                 </div>
                 <div className="div-right">
-                    <p>For customers</p>
-                    <NavLink exact to="/aboutus">
-                        <button>About us</button>
-                    </NavLink>
-                    <NavLink exact to="/contactus">
-                        <button>Contact us</button>
-                    </NavLink>
-                    <NavLink exact to="/privacy">
-                        <button>Privacy policy</button>
-                    </NavLink>
+                    <h4>For customers</h4>
+                    <p><Link exact to="/aboutUs"> About us</Link></p>
+                    <p><Link to="/contactUs"> Contact us </Link></p>
+                    <p><Link exact to="/privacy"> Privacy policy</Link></p>
                 </div>
             </div>
         )
