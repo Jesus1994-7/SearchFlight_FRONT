@@ -1,5 +1,6 @@
-import { withRouter, NavLink, Link } from 'react-router-dom';
+import { NavLink ,Link} from 'react-router-dom';
 import React from 'react';
+import { connect } from 'react-redux';
 
 import './header.scss';
 //ICONOS
@@ -13,13 +14,7 @@ class Header extends React.Component {
         super(props);
 
         this.state = {
-            user: {}
         }
-    }
-    componentDidMount() {
-        //llamar a user de redux 
-        //let userR = 
-        //this.setState({user:userR});
     }
 
     render() {
@@ -36,7 +31,7 @@ class Header extends React.Component {
                         <li><Link to="/contactUs"><FontAwesomeIcon icon={faEnvelope} className="iconos" /></Link></li>
                         <li><FontAwesomeIcon icon={faUser} className="iconos" />
                             <ul>
-                                {this.state.user?.id
+                                {this.props.userL?.id
                                     ?
                                     <li>
                                         <Link to="/profile" className="accesos">Profile</Link>
@@ -59,5 +54,5 @@ class Header extends React.Component {
         );
     }
 }
-
-export default withRouter(Header);
+const mapStateToProps = ({ user }) => ({ userL: user?.user })
+export default connect(mapStateToProps)(Header);
