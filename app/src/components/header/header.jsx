@@ -1,10 +1,12 @@
-import { withRouter,NavLink ,Link} from 'react-router-dom';
+import { withRouter, NavLink, Link } from 'react-router-dom';
 import React from 'react';
 
 import './header.scss';
 //ICONOS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faUser, faSearch } from '@fortawesome/free-solid-svg-icons'
+
+import logo1 from '../../img/logo.png'
 
 class Header extends React.Component {
     constructor(props) {
@@ -25,13 +27,13 @@ class Header extends React.Component {
             <header className="comp-Header">
                 <div>
                     <NavLink exact to="/">
-                        <img src="" alt="" />
+                        <img className="logo" src={logo1} alt="" />
                     </NavLink>
                 </div>
 
                 <div>
                     <ul className="list-icons">
-                        <Link to="/contactUs"><FontAwesomeIcon icon={faEnvelope} className="iconos"/></Link>
+                        <li><Link to="/contactUs"><FontAwesomeIcon icon={faEnvelope} className="iconos" /></Link></li>
                         <li><FontAwesomeIcon icon={faUser} className="iconos" />
                             <ul>
                                 {this.state.user?.id
