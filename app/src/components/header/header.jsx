@@ -1,5 +1,6 @@
 import { NavLink ,Link} from 'react-router-dom';
 import React from 'react';
+import { connect } from 'react-redux';
 
 import './header.scss';
 //ICONOS
@@ -15,11 +16,6 @@ class Header extends React.Component {
         this.state = {
             user: {}
         }
-    }
-    componentDidMount() {
-        //llamar a user de redux 
-        //let userR = 
-        //this.setState({user:userR});
     }
 
     render() {
@@ -59,5 +55,5 @@ class Header extends React.Component {
         );
     }
 }
-
-export default Header;
+const mapStateToProps = ({ user }) => ({ user: user.user })
+export default connect(mapStateToProps)(Header);
