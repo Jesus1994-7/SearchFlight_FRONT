@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import AirportList from '../airportList/airportList.jsx';
 import { flightService } from '../../services/flightService.js';
@@ -21,7 +21,6 @@ class SearchFlightComp extends React.Component {
 
     setAirport = (airport, id) => {
         this.state.airports.splice(id, 1, airport);
-        console.log(airport)
     }
 
     handleChange = (ev) => {
@@ -59,13 +58,12 @@ class SearchFlightComp extends React.Component {
         return (
             <form onSubmit={this.searchFlights}>
                 <span>{this.state.msgError}</span>
-                 Aeropuerto Salida <AirportList id={0} setAirport={this.setAirport} readOnly /> 
+                 Aeropuerto Salida <AirportList id={0} setAirport={this.setAirport} readOnly />
                     Aeropuerto Vuelta: <AirportList id={1} setAirport={this.setAirport} readOnly />
                 <br />
-                    Fecha de salida :
-                    Fecha de vuelta :
+                    Fecha de salida : <input type="text" name="datego" value={this.state.datego} onChange={this.handleChange} />
+                    Fecha de vuelta : <input type="text" name="datereturn" value={this.state.datereturn} onChange={this.handleChange} />
                 <button type="submit">Donde están mis vuelos!</button>
-
             </form>
         )
     }
