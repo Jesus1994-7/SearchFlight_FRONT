@@ -32,6 +32,7 @@ export default function App() {
                   <Route path="/search" exact component={ChooseFlight}/>
                   <Route path="/forgot" exact component={ForgotPass}/>
                   <Route path="/contactUs" exact component={ContactUs}/>
+                  <Route path="/logOut" exact component={LogOut}/>
               </Switch>
 
               <Footer />
