@@ -37,8 +37,8 @@ function registerUserValidation(user, password2) {
 
     error += this.passwordsValidation(user.password, password2);
 
-    if (user.questionSecret === EMPTY) { error += ' Necesita elegir una pregunta secreta. '; }
-    if (user.answerSecret === EMPTY) { error += ' Necesita introducir una respuesta secreta. '; }
+    if (utils.isNullOrEmpty(user.questionSecret)) { error += ' Necesita elegir una pregunta secreta. '; }
+    if (utils.isNullOrEmpty(user.answerSecret)) { error += ' Necesita introducir una respuesta secreta. '; }
 
     return error;
 };
@@ -62,7 +62,7 @@ function passwordsValidation(password, password2) {
 
     let error = EMPTY;
     if (utils.isNullOrEmpty(password) || utils.isNullOrEmpty(password2)) {
-        error += '';
+        error += ' Introduzca contraseñas ';
     }
     if (password.length < MIN_PASSWORD_CHAR || password.length > MAX_PASSWORD_CHAR) {
         error += ' Las contraseñas tienenq que tener entre ' + MIN_PASSWORD_CHAR + ' y ' + MAX_PASSWORD_CHAR + ' caracteres ';
