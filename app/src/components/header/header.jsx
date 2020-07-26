@@ -14,7 +14,6 @@ class Header extends React.Component {
         super(props);
 
         this.state = {
-            user: {}
         }
     }
 
@@ -32,7 +31,7 @@ class Header extends React.Component {
                         <li><Link to="/contactUs"><FontAwesomeIcon icon={faEnvelope} className="iconos" /></Link></li>
                         <li><FontAwesomeIcon icon={faUser} className="iconos" />
                             <ul>
-                                {this.state.user?.id
+                                {this.props.userL?.id
                                     ?
                                     <li>
                                         <Link to="/profile" className="accesos">Profile</Link>
@@ -55,5 +54,5 @@ class Header extends React.Component {
         );
     }
 }
-const mapStateToProps = ({ user }) => ({ user: user.user })
+const mapStateToProps = ({ user }) => ({ userL: user?.user })
 export default connect(mapStateToProps)(Header);
