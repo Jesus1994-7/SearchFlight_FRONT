@@ -1,4 +1,4 @@
-import { withRouter,NavLink ,Link} from 'react-router-dom';
+import { NavLink ,Link} from 'react-router-dom';
 import React from 'react';
 
 import './header.scss';
@@ -58,4 +58,4 @@ class Header extends React.Component {
     }
 }
 
-export default withRouter(Header);
+export default Header;

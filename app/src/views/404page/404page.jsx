@@ -24,7 +24,7 @@ class ErrorPage extends React.Component {
         }
         return (
             <div align="center">
-                <img src="https://media.giphy.com/media/CbNeTOSwGdpg4/giphy.gif"/>
+                <img src="https://media.giphy.com/media/CbNeTOSwGdpg4/giphy.gif" alt="Lost404"/>
                 <h3>Quizas....te has equivocado?</h3>
                 <h5>NO IMPORTA EN BREVE VOLVERAS AL INDEX ;)</h5>
             </div>
