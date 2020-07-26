@@ -13,9 +13,7 @@ class ThankPage extends React.Component {
     }
     componentDidMount() {
         setTimeout(() => {
-            this.setState({
-                redirect: true,
-            })
+            this.setState({ redirect: true });
         }, 2500);
     }
     render() {

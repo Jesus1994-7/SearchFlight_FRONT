@@ -1,7 +1,7 @@
 import './logOut.scss';
 
 import React from 'react';
-import {Redirect }from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 import { userService } from '../../services/userService.js';
 
@@ -16,9 +16,7 @@ class LogOut extends React.Component {
     componentDidMount() {
         userService.logoutServ();
         setTimeout(() => {
-            this.setState({
-                redirect: true,
-            })
+            this.setState({ redirect: true });
         }, 2500);
     }
     render() {
