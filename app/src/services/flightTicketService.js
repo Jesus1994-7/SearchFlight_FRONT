@@ -1,6 +1,5 @@
 import { flightTicketRepository } from '../repositories/flightTicketRespository.js';
 
-
 export const flightService = {
     createFlightTicket
 };
