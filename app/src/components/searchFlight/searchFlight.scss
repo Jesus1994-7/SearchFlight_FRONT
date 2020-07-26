@@ -1,0 +1,28 @@
+.search {
+    width: 60%;
+    height: 40%;
+    border: 2px solid rgb(48, 48, 179);
+    padding: 2.5em;
+    border-radius: 10px ;
+    background-color: white;
+    opacity: 0.9;
+    margin-left: 32%;
+
+    .names {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .components {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 3%;
+    }
+    button {
+        background-color: blue;
+        color: white;
+        padding: 1em;
+        position: relative;
+        left: 80%;
+    }
+}

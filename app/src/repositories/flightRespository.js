@@ -4,17 +4,18 @@ const EMPTY = [];
 
 export const flightRepository = {
     getFlightsGo,
-    getFlighticket
+    doFlighticket
+    
 };
 
 async function getFlightsGo(dataFlights) {
     try {
-        const res = await axios.post('data/searchFlight', dataFlights);
+        const res = await axios.post(`data/searchFlight`, dataFlights);
         return res.data;
     } catch (error) { return EMPTY; }
 }
 
-async function getFlighticket(dataFlight) {
+async function doFlighticket(dataFlight) {
     try {
         const res = await axios.post('flighticket/create' , dataFlight);
         return res.data;
@@ -22,3 +23,4 @@ async function getFlighticket(dataFlight) {
         return error;
     }
 }
+
