@@ -16,7 +16,7 @@ function loginServ(credentials) {
         .catch(error => console.log(error))
 };
 function logoutServ() {
-    localStorage.removeItem('authToken');
+    localStorage.clear();
     logout();
 
 };
