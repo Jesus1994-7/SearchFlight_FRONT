@@ -46,6 +46,11 @@ class Login extends React.Component {
             return;
         }
     }
+    forgotPass(){
+        setTimeout(() => {
+            this.props.history.push('/forgot');
+        }, 1500);
+    }
 
     render() {
         return (
