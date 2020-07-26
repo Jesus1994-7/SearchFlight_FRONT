@@ -28,7 +28,7 @@ class ChooseFlightItem extends React.Component {
 
                         <div name="price" >{flight.price}</div>
 
-                        <NavLink exact to='/'>
+                        <NavLink exact to='/buyflight'>
                             <button value={flight.id} onClick={ e => this.props.setFlight(e.target.value)}>Comprar</button>
                         </NavLink>
                     </div>
