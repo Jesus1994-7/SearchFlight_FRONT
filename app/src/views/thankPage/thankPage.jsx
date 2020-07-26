@@ -1,11 +1,9 @@
-import './logOut.scss';
+import './thankPage.scss';
 
 import React from 'react';
-import {Redirect }from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
-import { userService } from '../../services/userService.js';
-
-class LogOut extends React.Component {
+class ThankPage extends React.Component {
     constructor(props) {
         super(props);
 
@@ -14,7 +12,6 @@ class LogOut extends React.Component {
         }
     }
     componentDidMount() {
-        userService.logoutServ();
         setTimeout(() => {
             this.setState({
                 redirect: true,
@@ -28,8 +25,8 @@ class LogOut extends React.Component {
             )
         }
         return (
-            <h3 align="center">Gracias por usar nuestra aplicación, esperamos verle pronto.</h3>
+            <h3 align="center"> Gracias por su compra!</h3>
         );
     }
 }
-export default LogOut;
+export default ThankPage;
