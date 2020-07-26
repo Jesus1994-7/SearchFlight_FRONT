@@ -35,7 +35,7 @@ function registerUserValidation(user, password2) {
 
     let error = EMPTY;
 
-    error += this.passwordsValidation(user.password,password2);
+    error += this.passwordsValidation(user.password, password2);
 
     if (user.questionSecret === EMPTY) { error += ' Necesita elegir una pregunta secreta. '; }
     if (user.answerSecret === EMPTY) { error += ' Necesita introducir una respuesta secreta. '; }
@@ -58,26 +58,26 @@ function contactMsgValidation(contactMsg) {
     if (!utils.isNullOrEmpty(error)) { error += ' tiene que ser rellanados.'; }
     return error;
 };
-function passwordsValidation(password, password2){
-   
-   let error = EMPTY;
-    if(utils.isNullOrEmpty(password) || utils.isNullOrEmpty(password2)){
+function passwordsValidation(password, password2) {
+
+    let error = EMPTY;
+    if (utils.isNullOrEmpty(password) || utils.isNullOrEmpty(password2)) {
         error += '';
     }
-    if (user.password.length < MIN_PASSWORD_CHAR || user.password.length > MAX_PASSWORD_CHAR) {
+    if (password.length < MIN_PASSWORD_CHAR || password.length > MAX_PASSWORD_CHAR) {
         error += ' Las contraseñas tienenq que tener entre ' + MIN_PASSWORD_CHAR + ' y ' + MAX_PASSWORD_CHAR + ' caracteres ';
     }
-    if (user.password !== password2) {
+    if (password !== password2) {
         error += ' Las contraseñas tienen que ser iguales. ';
     }
     return error;
 };
-function forgotDataValidation(forgotData,password2){
+function forgotDataValidation(forgotData, password2) {
     let error = EMPTY;
 
-    error += this.passwordsValidation(forgotData.password,password2);
-    if(utils.isNullOrEmpty(forgotData.username)){error+='';}
-    if(utils.isNullOrEmpty(forgotData.answer)){error+='';}
+    error += this.passwordsValidation(forgotData.password, password2);
+    if (utils.isNullOrEmpty(forgotData.username)) { error += ' Debe introducir Username. '; }
+    if (utils.isNullOrEmpty(forgotData.answer)) { error += ' Debe introducir una respuesta. '; }
 
-
+    return error;
 }
