@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 //import logo from './logo.svg';
 
@@ -12,9 +12,10 @@ import Footer from './components/footer/footer.jsx';
 import ChooseFlight from './views/chooseFlight/chooseFlight.jsx';
 import ContactUs from './views/contactUs/contactUs.jsx';
 import ForgotPass from './views/forgotPassword/forgotPassword.jsx';
+import LogOut from './views/logOut/logOut.jsx';
 
 //import CSS
-import './App.css';
+import './App.scss';
 
 
 
