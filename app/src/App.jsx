@@ -14,7 +14,7 @@ import ContactUs from './views/contactUs/contactUs.jsx';
 import ForgotPass from './views/forgotPassword/forgotPassword.jsx';
 import LogOut from './views/logOut/logOut.jsx';
 import AboutUs from './views/aboutUs/aboutUs.jsx';
-
+import Page404 from './views/404page/404page.jsx';
 //import CSS
 import './App.scss';
 
@@ -36,6 +36,7 @@ export default function App() {
                   <Route path="/contactUs" exact component={ContactUs}/>
                   <Route path="/logOut" exact component={LogOut}/>
                   <Route path="/aboutUs" exact component={AboutUs}/>
+                  <Route component={Page404} />
               </Switch>
 
               <Footer />
