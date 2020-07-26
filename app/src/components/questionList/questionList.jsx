@@ -1,5 +1,5 @@
 import React from 'react';
-import './countryList.scss';
+import './questionList.scss';
 
 import { connect } from 'react-redux';
 
@@ -21,5 +21,5 @@ class QuestionList extends React.Component {
     }
 }
 
-const mapStateToProps = ({ initialData }) => ({ questions: initialData.questionList })
+const mapStateToProps = ({ initialData }) => ({ questions: initialData.questionsList })
 export default connect(mapStateToProps)(QuestionList);

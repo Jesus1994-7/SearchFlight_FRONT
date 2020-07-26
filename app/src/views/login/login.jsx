@@ -1,8 +1,9 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'
 
 import { userService } from '../../services/userService.js';
-import { validations } from "../../utils/validations.js";
-import { utils } from "../../utils/utils.js";
+import { validations } from '../../utils/validations.js';
+import { utils } from '../../utils/utils.js';
 import './login.scss';
 
 class Login extends React.Component {
@@ -55,6 +56,9 @@ class Login extends React.Component {
                 <input type="password" placeholder="password" name="password"
                     value={this.state.password} onChange={this.handleChange}></input>
                 <button type="submit">LogIn!</button>
+                <NavLink exact to="/forgot">
+                    <p>has olvidado tu contraseña?</p>
+                </NavLink>
             </form>
         )
     }

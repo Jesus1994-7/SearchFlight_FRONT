@@ -8,7 +8,9 @@ export const validations = {
     userValidation,
     registerUserValidation,
     credentialsValidation,
-    contactMsgValidation
+    contactMsgValidation,
+    passwordsValidation,
+    forgotDataValidation
 }
 
 function userValidation(user) {
@@ -33,18 +35,10 @@ function registerUserValidation(user, password2) {
 
     let error = EMPTY;
 
-    if (user.password.length < MIN_PASSWORD_CHAR || user.password.length > MAX_PASSWORD_CHAR) {
-        error += ' Las contraseñas tienenq que tener entre ' + MIN_PASSWORD_CHAR + ' y ' + MAX_PASSWORD_CHAR + ' caracteres ';
-    }
-    if (user.password !== password2) {
-        error += ' Las contraseñas tienen que ser iguales. ';
-    }
-    if (user.questionSecret === EMPTY) {
-        error += ' Necesita elegir una pregunta secreta. ';
-    }
-    if (user.answerSecret === EMPTY) {
-        error += ' Necesita introducir una respuesta secreta. ';
-    }
+    error += this.passwordsValidation(user.password, password2);
+
+    if (utils.isNullOrEmpty(user.questionSecret)) { error += ' Necesita elegir una pregunta secreta. '; }
+    if (utils.isNullOrEmpty(user.answerSecret)) { error += ' Necesita introducir una respuesta secreta. '; }
 
     return error;
 };
@@ -64,3 +58,26 @@ function contactMsgValidation(contactMsg) {
     if (!utils.isNullOrEmpty(error)) { error += ' tiene que ser rellanados.'; }
     return error;
 };
+function passwordsValidation(password, password2) {
+
+    let error = EMPTY;
+    if (utils.isNullOrEmpty(password) || utils.isNullOrEmpty(password2)) {
+        error += ' Introduzca contraseñas ';
+    }
+    if (password.length < MIN_PASSWORD_CHAR || password.length > MAX_PASSWORD_CHAR) {
+        error += ' Las contraseñas tienenq que tener entre ' + MIN_PASSWORD_CHAR + ' y ' + MAX_PASSWORD_CHAR + ' caracteres ';
+    }
+    if (password !== password2) {
+        error += ' Las contraseñas tienen que ser iguales. ';
+    }
+    return error;
+};
+function forgotDataValidation(forgotData, password2) {
+    let error = EMPTY;
+
+    error += this.passwordsValidation(forgotData.password, password2);
+    if (utils.isNullOrEmpty(forgotData.username)) { error += ' Debe introducir Username. '; }
+    if (utils.isNullOrEmpty(forgotData.answer)) { error += ' Debe introducir una respuesta. '; }
+
+    return error;
+}
