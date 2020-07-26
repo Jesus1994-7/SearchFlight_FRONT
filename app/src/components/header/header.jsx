@@ -44,9 +44,7 @@ class Header extends React.Component {
                                     </li>
                                 }
                             </ul>
-
                         </li>
-                        <li><Link to="/"><FontAwesomeIcon icon={faSearch} className="iconos" /></Link></li>
                     </ul>
                 </div>
 

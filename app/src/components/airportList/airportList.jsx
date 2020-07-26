@@ -5,8 +5,6 @@ import { connect } from 'react-redux';
 
 class AirportList extends React.Component {
 
-    state = {}
-
     render() {
         return (
             <select className="selector" defaultValue={this.props.selected} onChange={
@@ -17,7 +15,7 @@ class AirportList extends React.Component {
                     <option key={airport.id}
                         value={airport.id}
                     >
-                        {airport.IataCode.code + " " + airport.name}
+                        {airport.IataCode?.code + " " + airport.name}
                     </option>
                 ))}
             </select>
