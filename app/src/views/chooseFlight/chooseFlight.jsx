@@ -1,60 +1,44 @@
 import React from 'react';
-import { useSelector } from 'react-redux'
-import { connect } from 'react-redux';
-import { flightService } from '../../services/flightService.js';
-
-import  ChooseFlightItem  from '../../components/chooseFlightItem/ChooseFlightItem.jsx';
+import ChooseFlightItem from '../../components/chooseFlightItem/ChooseFlightItem.jsx';
 
 import './chooseFlight.scss';
-import axios from 'axios';
-import { utils } from '../../utils/utils.js';
+import { flightService } from '../../services/flightService.js';
+import { useSelector } from 'react-redux';
 
-class ChooseFlight extends React.Component {
-    constructor(props) {
-        super(props);
+const ChooseFlight = (props) => {
 
-        this.state = {
-            idFlight: 0,
-            takeOffDate: "",
-            landingAirport:"",
-            takeOffAirport: "",
-            landingDate: "",
-            company: 0,
-            plane: 0,
-            price: 0
+    let isSelected = false;
+
+    const flights = useSelector(({flights}) => flights.flightsList );
+    //console.log(flights)
+
+
+    
+    const setFlight = (idFlight) => {
+        for (const flight of flights) {
+        console.log(typeof(flight.id))
+        console.log(typeof( idFlight))
+        if (parseInt(flight.id) == idFlight) {
+            console.log(flight)
+            flightService.choosedFlight(flight);
+            isSelected = true;
+            break;
         }
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    componentDidMount(){
-
-        //flightService.getFlights();
-        
-    }
-
-    handleChange = (ev) => {
-        this.setState({ [ev.target.name]: ev.target.type === 'string' ? +ev.target.value : ev.target.value});
-    }
-
-    buyFlight = (ev) => {
-        ev.preventDefault();
-        const user = useSelector(state => state.user);
-        if(utils.isNullOrEmpty(user.id)){
-            this.props.history.push('/login');
-        }else {
-                axios.post('flighticket/create');
-                //flightService.getFlightTicket
         }
     }
-
-    render() {
+   
         return (
             <div >
-                 <ChooseFlightItem></ChooseFlightItem>
-                 <button onClick={this.buyFlight}>Comprar</button>
-                 <hr/>
+                <label>Salida</label>
+                <label>Llegada</label>
+                <label>Aerolínea</label>
+                <label>Vuelo</label>
+                <label>Precio</label>
+                <ChooseFlightItem setFlight={setFlight}></ChooseFlightItem>
+
+                <hr />
             </div>
         )
-    }
 }
+
 export default ChooseFlight;

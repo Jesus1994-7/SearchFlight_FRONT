@@ -9,7 +9,7 @@ class AirportList extends React.Component {
 
     render() {
         return (
-            <select defaultValue={this.props.selected} onChange={
+            <select className="selector" defaultValue={this.props.selected} onChange={
                 e => this.props.setAirport(
                     e.target.value, this.props.id
                 )}>

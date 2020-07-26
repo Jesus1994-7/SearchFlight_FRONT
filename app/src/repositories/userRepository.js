@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 export const userRepository = {
     login,
     updateUser,
@@ -10,7 +11,8 @@ export const userRepository = {
 
 async function login(credentials) {
     try {
-        const res = await axios.post('main/login', credentials);
+        const res = await axios.post(`main/login`, credentials);
+        console.log(res)
         return res.data;
     }
     catch (error) {

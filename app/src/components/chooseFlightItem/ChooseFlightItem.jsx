@@ -2,35 +2,35 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import './ChooseFlightItem.scss';
+import { NavLink } from 'react-router-dom';
 
 class ChooseFlightItem extends React.Component {
-
-    state = {}
-
+    constructor(props) {
+        super(props);
+        this.state = {}
+    }
 
     render() {
         return (
-            <div>
+            <div >
                 {this.props.flightsList?.map(flight => (
-                    <div>
-                        <label>Salida</label>
-                        <p>{flight.takeOffDate}</p>
+                    <div key={flight.id} >
+                        <div name="takeOffDate" >{flight.takeOffDate}</div>
 
-                        <p>{flight.takeOffAirport}</p>
-                        <p>{flight.landingAirport}</p>
+                        <div name="takeOffAirportId" >{flight.TakeOffAirportId}</div>
+                        <div name="landingAirportId" >{flight.LandingAirportId}</div>
 
-                        <label>Llegada</label>
-                        <p>{flight.landingDate}</p>
+                        <div name="landingDate">{flight.landingDate}</div>
 
-                        <label>Aerolínea</label>
-                        <p>{flight.company}</p>
+                        <div name="company" >{flight.CompanyId}</div>
 
-                        <label>Vuelo</label>
-                        <p>{flight.plane}</p>
+                        <div name="plane" >{flight.PlaneId}</div>
 
-                        <label>Precio</label>
-                        <p>{flight.price}</p>
-                        
+                        <div name="price" >{flight.price}</div>
+
+                        <NavLink exact to='/'>
+                            <button value={flight.id} onClick={ e => this.props.setFlight(e.target.value)}>Comprar</button>
+                        </NavLink>
                     </div>
                 ))}
             </div>
