@@ -43,7 +43,6 @@ class SearchFlightComp extends React.Component {
                 this.setState({ msgError: " Tiene que tener fecha de ida. " });
                 return;
             }
-            console.log(this.state.airports[0], this.state.airports[1])
             flightService.getFlights(this.state.airports[0], this.state.airports[1],
                 this.state.datego, this.state.datereturn)
             setTimeout(() => {
@@ -74,7 +73,7 @@ class SearchFlightComp extends React.Component {
 
                         <div >
                             <p> Fecha de salida </p>
-                            <input type="text" name="datego" value={this.state.datego} onChange={this.handleChange} />
+                            <input type="text" placeholder="2020-01-01" name="datego" value={this.state.datego} onChange={this.handleChange} />
 
                         </div>
                         <div >
@@ -83,7 +82,6 @@ class SearchFlightComp extends React.Component {
                         </div>
                     </div>
                     <button type="submit">Donde están mis vuelos!</button>
-
                 </div>
             </form>
         )
