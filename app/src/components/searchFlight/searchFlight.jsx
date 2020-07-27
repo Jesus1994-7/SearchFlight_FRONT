@@ -59,7 +59,7 @@ class SearchFlightComp extends React.Component {
                 <h3>Busque su vuelo</h3>
                 <div className="components-search">
 
-                    <span>{this.state.msgError}</span>
+                    <span className="error">{this.state.msgError}</span><br/>
                     <div className="components">
                         <div>
                             <p>Salida</p>
