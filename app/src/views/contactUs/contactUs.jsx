@@ -24,7 +24,7 @@ class ContactUs extends React.Component {
         this.setState({ [ev.target.name]: ev.target.type === 'string' ? +ev.target.value : ev.target.value });
     }
 
-    componentDidMount() {//de props llamada
+    componentDidMount() {
         this.setState({ userID: 0 });
     }
 
