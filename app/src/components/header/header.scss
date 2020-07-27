@@ -2,9 +2,10 @@
     height: 5em;
     background-color: #214E91;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-content: center;
     color: whitesmoke;
+    padding: 1em;
 
     .list-icons {
         display: flex;
@@ -15,24 +16,10 @@
         position: relative;
         transition: linear 1s;
         padding: 3em;
-        bottom: 30px;
+        bottom: 70px;
+        font-size: 1.5em;
         
     }
-
-    /*ul {
-        list-style:  none;
-    }
-
-    a {
-        all: unset;
-        padding: 1em;
-        cursor: pointer;
-        color: whitesmoke;
-    }
-    .accesos {
-        display: inline-blockS;
-        overflow: hidden;
-    }*/
     ul li {
     
         list-style: none;
@@ -57,7 +44,7 @@
         list-style:none;
         width:180px;
         
-        margin-left:-110px;
+        margin-left:-70px;
         top:50px;
         font: 12px 'Open Sans Condensed', sans-serif;
         
