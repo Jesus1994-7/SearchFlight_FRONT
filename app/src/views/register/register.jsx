@@ -32,6 +32,8 @@ class Register extends React.Component {
         }
         //bindeamos la funcion al estado
         this.createRegister = this.createRegister.bind(this);
+        this.setQuestion = this.setQuestion.bind(this);
+        this.setCountry = this.setCountry.bind(this);
     }
 
     handleChange = (ev) => {
