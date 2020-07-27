@@ -1,15 +1,11 @@
 import { flightTicketRepository } from '../repositories/flightTicketRespository.js';
 
-export const flightService = {
+export const flightServiceTicket = {
     createFlightTicket
 };
 
-function createFlightTicket(flightTicketFrontt) {
-    const flightTicket = {
+function createFlightTicket(flightTicketFront) {
 
-    };
+    flightTicketRepository.createTicket(flightTicketFront);
 
-    flightTicketRepository.create(flightTicket)
-        .then()
-        .catch(error => console.log(error));
 };

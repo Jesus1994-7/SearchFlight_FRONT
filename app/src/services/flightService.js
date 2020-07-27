@@ -26,10 +26,6 @@ function getFlights(TakeOffAirportId, LandingAirportId, takeOffDate, dateReturn)
 function choosedFlight(flight) {
 
     console.log(flight)
-       
-    valuesFlight(flight);
-    //traer lista de vuelos de redux
-    //compara esos vuelos que vienen con la id que tu tienes
-    //guardar ese objeto en redux usando gotravel
-       
+      
+    valuesFlight(flight);       
 }
