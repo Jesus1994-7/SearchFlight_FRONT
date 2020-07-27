@@ -30,7 +30,6 @@ function choosedFlight(flight) {
 function getFlightsbyDate(dateF) {
 
     let date = utils.DateToSQLFormat(dateF);
-    
     flightRepository.getFlightsbyDate(date)
         .then(flights => { valuesFlights(flights) })
         .catch(error => console.log(error));
