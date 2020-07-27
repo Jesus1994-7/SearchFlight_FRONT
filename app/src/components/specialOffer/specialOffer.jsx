@@ -1,9 +1,11 @@
+import React from 'react';
+import { withRouter } from 'react-router-dom';
+
 import './specialOffer.scss';
+
 import { flightService } from '../../services/flightService.js';
 
-import React from 'react';
-
-class specialOffer extends React.Component {
+class SpecialOffer extends React.Component {
     constructor(props) {
         super(props);
 
@@ -11,16 +13,20 @@ class specialOffer extends React.Component {
         }
     }
 
-    LastMinuteFlights(){
-        flightService.getFlightsbyDate(Date());
+    lastMinuteFlights = (ev) => {
+        ev.preventDefault();
+
+        let date = Date();
+        flightService.getFlightsbyDate(date);
+        this.props.history.push('/search');
     }
 
     render() {
         return (
-            <form onSubmit={this.LastMinutFlights}>
+            <form onSubmit={this.lastMinuteFlights}>
                 <button type="submit">Last Minute!!</button>
             </form>
         );
     }
 }
-export default specialOffer;
+export default withRouter(SpecialOffer);
