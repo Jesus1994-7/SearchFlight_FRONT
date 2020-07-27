@@ -87,8 +87,8 @@ class Register extends React.Component {
             <div className="comp-Register">
                 <div className="register">
                     <h3>Register</h3>
-                    <span>{this.state.msgError}</span>
-                    <label>Nombre de usuario</label><br />
+                    <span className="error">{this.state.msgError}</span><br/>
+                    <label >Nombre de usuario</label><br/>
                     <input placeholder="Introduzca un username" type="text" name="username" value={this.state.username} onChange={this.handleChange} /><br />
                     <label>Nombre</label><br />
                     <input placeholder="Introduzca su nombre" type="text" name="name" value={this.state.name} onChange={this.handleChange} /><br />
@@ -118,5 +118,4 @@ class Register extends React.Component {
         );
     }
 };
-
 export default Register;
