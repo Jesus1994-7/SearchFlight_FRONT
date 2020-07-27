@@ -74,7 +74,7 @@ class SearchFlightComp extends React.Component {
 
                         <div >
                             <p> Fecha de salida </p>
-                            <input type="text" name="datego" value={this.state.datego} onChange={this.handleChange} />
+                            <input type="text" placeholder="2020-01-01" name="datego" value={this.state.datego} onChange={this.handleChange} />
 
                         </div>
                         <div >
