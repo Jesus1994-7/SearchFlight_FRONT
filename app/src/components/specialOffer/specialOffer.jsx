@@ -35,8 +35,8 @@ class SpecialOffer extends React.Component {
     render() {
         return (
             <div >
-                <h3>Vuelos de última hora</h3>
                 <div className="offers">
+                <h3>Vuelos de última hora</h3>
                     <form onSubmit={this.lastMinuteFlights}>
                         <button type="submit">Last Minute!!</button>
                     </form>
