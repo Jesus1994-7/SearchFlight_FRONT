@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './detailFlight.scss';
 
 class DetailFlight extends React.Component {
     constructor(props) {
