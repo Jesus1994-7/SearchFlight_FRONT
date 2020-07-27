@@ -12,7 +12,7 @@ class SpecialOffer extends React.Component {
         super(props);
 
         this.state = {
-            airport : 0
+            airport: 0
         }
     }
 
@@ -28,20 +28,23 @@ class SpecialOffer extends React.Component {
         this.props.history.push('/search');
     }
     setAirport = (airport, id) => {
-        if(utils.isNullOrEmpty(airport)){return}
-        this.setState({airport:airport});
+        if (utils.isNullOrEmpty(airport)) { return }
+        this.setState({ airport: airport });
     }
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.lastMinuteFlights}>
-                    <button type="submit">Last Minute!!</button>
-                </form>
-                <form onSubmit={this.flightByAirport}>
-                <AirportList id={0} setAirport={this.setAirport} readOnly />
-                    <button type="submit">Quiero ir!</button>
-                </form>
+            <div >
+                <h3>Vuelos de última hora</h3>
+                <div className="offers">
+                    <form onSubmit={this.lastMinuteFlights}>
+                        <button type="submit">Last Minute!!</button>
+                    </form>
+                    <form onSubmit={this.flightByAirport}>
+                        <AirportList id={0} setAirport={this.setAirport} readOnly />
+                        <button type="submit">Quiero ir!</button>
+                    </form>
+                </div>
             </div>
         );
     }

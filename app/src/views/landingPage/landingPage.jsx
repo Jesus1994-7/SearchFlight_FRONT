@@ -26,9 +26,12 @@ class LandingPage extends React.Component {
                 <img className="imagen" src={fondo} alt="fondo" />
 
                 <Search className="search" />
-
-                <SpecialOffer />
-                <Exchange />
+                <div className="submenu">
+                    <SpecialOffer />
+                
+                
+                    <Exchange />
+                </div>
             </div>
         );
     };

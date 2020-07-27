@@ -1,0 +1,14 @@
+.offers {
+    border: 1px solid red;
+    width: 430px;
+    height: 200px;
+    color: white;
+    padding: 2em;
+    background-color: #294664;
+    display: flex;
+    justify-content: space-around;
+
+    button {
+        width: 100px;
+    }
+}

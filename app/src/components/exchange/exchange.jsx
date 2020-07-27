@@ -46,9 +46,10 @@ class ExchangeComp extends React.Component {
     render() {
         return (
             <div className="exchangeForm">
+                <h3>Cambio de Divisas</h3>
                 <form onSubmit={this.calculate}>
-                    Divisa Base: <CurrencyList id={0} setCurrency={this.setCurrency} readOnly />
-                    Divisa Cambio: <CurrencyList id={1} setCurrency={this.setCurrency} readOnly />
+                   <label> Divisa Base:</label> <CurrencyList id={0} setCurrency={this.setCurrency} readOnly /><br/>
+                   <label> Divisa Cambio:</label> <CurrencyList id={1} setCurrency={this.setCurrency} readOnly />
                     <br />
                     Cantidad para cambiar:  <input type="text" placeholder="0" name="num" value={this.state.num}
                         onChange={this.handleChange}/>

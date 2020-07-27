@@ -46,7 +46,7 @@ class Login extends React.Component {
             return;
         }
     }
-    forgotPass(){
+    forgotPass() {
         setTimeout(() => {
             this.props.history.push('/forgot');
         }, 1500);
@@ -54,16 +54,19 @@ class Login extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.pressLogin}>
-                <span>{this.state.msgError}</span>
-                <input type="text" placeholder="usuario" name="username"
-                    value={this.state.username} onChange={this.handleChange}></input>
-                <input type="password" placeholder="password" name="password"
-                    value={this.state.password} onChange={this.handleChange}></input>
-                <button type="submit">LogIn!</button>
-                <NavLink exact to="/forgot">
-                    <p>has olvidado tu contraseña?</p>
-                </NavLink>
+            <form onSubmit={this.pressLogin} className="fondo">
+                <div className="login">
+                    <h3>Login</h3>
+                    <span>{this.state.msgError}</span>
+                    <input className="inputs" type="text" placeholder="usuario" name="username"
+                        value={this.state.username} onChange={this.handleChange}></input>
+                    <input className="inputs" type="password" placeholder="password" name="password"
+                        value={this.state.password} onChange={this.handleChange}></input>
+                    <button type="submit">LogIn!</button>
+                    <NavLink exact to="/forgot">
+                        <p className="contraseña">has olvidado tu contraseña?</p>
+                    </NavLink>
+                </div>
             </form>
         )
     }
