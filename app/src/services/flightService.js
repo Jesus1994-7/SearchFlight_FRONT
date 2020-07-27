@@ -5,7 +5,8 @@ import { utils } from '../utils/utils.js';
 export const flightService = {
     getFlights,
     choosedFlight,
-    getFlightsbyDate
+    getFlightsbyDate,
+    getFlightsbyLandingAirport
 };
 
 function getFlights(TakeOffAirportId, LandingAirportId, takeOffDate, dateReturn) {
@@ -28,9 +29,21 @@ function choosedFlight(flight) {
 };
 
 function getFlightsbyDate(dateF) {
+    
+    const dateToFligth = {
+        date: utils.DateToSQLFormat(dateF)
+    };
 
-    let date = utils.DateToSQLFormat(dateF);
-    flightRepository.getFlightsbyDate(date)
+    flightRepository.getFlightsbyDate(dateToFligth)
+        .then(flights => { valuesFlights(flights) })
+        .catch(error => console.log(error));
+};
+
+function getFlightsbyLandingAirport(id) {
+    const airportLanding={
+        id: id
+    }
+    flightRepository.getFlightsbyLandingAirport(airportLanding)
         .then(flights => { valuesFlights(flights) })
         .catch(error => console.log(error));
 }
