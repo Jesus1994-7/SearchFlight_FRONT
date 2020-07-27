@@ -57,7 +57,7 @@ class ContactUs extends React.Component {
         return (
             <div className="fondo">
                 <div className="contactUs">
-                    <span>{this.state.msgError}</span>
+                    <span className="error">{this.state.msgError}</span><br/>
                     <input className="inputs" placeholder="Introduzca su email" type="text" name="email" value={this.state.email} onChange={this.handleChange}></input>
                     <input className="inputs" placeholder="Introduzca asunto" type="text" name="subject" value={this.state.subject} onChange={this.handleChange}></input>
                     <input className="inputs" placeholder="Su mensaje para nosotros" type="text" name="message" value={this.state.message} onChange={this.handleChange}></input>
