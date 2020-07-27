@@ -1,0 +1,16 @@
+.comp-footer {
+    background-color: rgb(18, 18, 160);
+    color: white;
+    display: grid;
+
+    .footer-contact{
+        grid-column: 1;
+        color: white;
+    }
+    .footer-customers{
+        grid-column: 2;
+    }
+    .footer-text{
+        color:white;
+    }
+}

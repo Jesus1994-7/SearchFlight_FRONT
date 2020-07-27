@@ -1,0 +1,104 @@
+.comp-Header {
+    height: 5em;
+    background-color: #214E91;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    color: whitesmoke;
+    padding: 1em;
+
+    .list-icons {
+        display: flex;
+        justify-content: space-around;
+    }
+    .iconos {
+        cursor: pointer;
+        position: relative;
+        transition: linear 1s;
+        padding: 3em;
+        bottom: 70px;
+        font-size: 1.5em;
+        
+    }
+    ul li {
+    
+        list-style: none;
+        /*box-shadow: 0 0 10px rgba(100, 100, 100, 0.2) inset,1px 1px 1px #CCC;*/
+        display: inline-block;
+        line-height: 1;
+        margin: 1px;
+        border-radius: 3px;
+        position:relative;
+
+        
+    }
+    ul li a {
+        color:inherit;
+        text-decoration:none !important;
+        font-size:18px;
+        width: 250px;
+    }
+
+    li ul {
+        position:absolute;
+        list-style:none;
+        width:180px;
+        
+        margin-left:-70px;
+        top:50px;
+        font: 12px 'Open Sans Condensed', sans-serif;
+        
+       /* This is important for the show/hide CSS animation */
+        max-height:0px;
+        overflow:hidden;
+    }
+
+    li:hover ul {
+        max-height:200px;
+    }
+    li ul li {
+        background-color: white;
+        border-top: none;
+
+    }
+    li ul li a {
+        padding:8px;
+        color: rgb(30, 97, 206) !important;
+        text-decoration:none !important;
+        display:block;
+    }
+
+
+    li ul li:first-child{
+        border-radius:3px 3px 0 0;
+        position:relative;
+        border-top: none;
+        text-align: center;
+        align-items: center;
+       }
+    li ul li:first-child:before{ /* the pointer tip */
+        content:'';
+        position:absolute;
+        width:1px;
+        height:1px;
+        border:5px solid rgb(30, 97, 206);
+        border-bottom-color: rgb(25, 58, 110);
+        top:-10px;
+        margin-left:-15px;
+        
+       }
+    li ul li:last-child{
+        border-bottom-left-radius:3px;
+        border-bottom-right-radius:3px;
+        border-top: none;
+       }
+    .accesos:hover{
+        background-color: rgb(179, 221, 241);
+    }
+    .logo {
+        width: 150px;
+        height: 80px;
+    }
+    
+    
+}

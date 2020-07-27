@@ -1,0 +1,32 @@
+.flights {
+    color: green;
+    display: flex;
+    justify-content: space-between;
+
+    label {
+        padding: 3em;
+    }
+}
+.search {
+    position: absolute;
+    top: 350px;
+}
+.company {
+    position: relative;
+    left: 20px;
+}
+.plane {
+    position: relative;
+    left: 150px;
+}
+.price {
+    position: relative;
+    left: 280px;
+}
+.compra {
+    position: relative;
+    left: 250px;
+    top: 35%;
+    border-radius: 10px;
+    padding: 1em;
+}
