@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './detailFlight.scss';
 
 import { flightServiceTicket } from '../../services/flightTicketService.js';

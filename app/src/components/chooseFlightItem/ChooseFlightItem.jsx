@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import './ChooseFlightItem.scss';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class ChooseFlightItem extends React.Component {
     constructor(props) {
@@ -14,7 +14,7 @@ class ChooseFlightItem extends React.Component {
         return (
             <div >
                 {this.props.flightsList?.map(flight => (
-                    <div key={flight.id} >
+                    <div className="flights" key={flight.id} >
                         <div name="takeOffDate" >{flight.takeOffDate}</div>
 
                         <div name="takeOffAirportId" >{flight.TakeOffAirportId}</div>
@@ -28,9 +28,9 @@ class ChooseFlightItem extends React.Component {
 
                         <div name="price" >{flight.price}</div>
 
-                        <NavLink exact to='/buyflight'>
-                            <button value={flight.id} onClick={ e => this.props.setFlight(e.target.value)}>Comprar</button>
-                        </NavLink>
+                        
+                            <Link to='/buyflight'><button value={flight.id} onClick={ e => this.props.setFlight(e.target.value)}>Comprar</button></Link>
+                        
                     </div>
                 ))}
             </div>

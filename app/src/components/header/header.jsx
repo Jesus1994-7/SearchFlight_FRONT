@@ -29,7 +29,7 @@ class Header extends React.Component {
                 <div>
                     <ul className="list-icons">
                         <li><Link to="/contactUs"><FontAwesomeIcon icon={faEnvelope} className="iconos" /></Link></li>
-                        <li><Link ><FontAwesomeIcon icon={faUser} className="iconos" /></Link>
+                        <li><Link to="/register"><FontAwesomeIcon icon={faUser} className="iconos" /></Link>
                             <ul>
                                 {this.props.userL?.id
                                     ?

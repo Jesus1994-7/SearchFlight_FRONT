@@ -21,13 +21,16 @@ const ChooseFlight = (props) => {
 
     return (
         <div >
-            <label>Salida</label>
-            <label>Llegada</label>
-            <label>Aerolínea</label>
-            <label>Vuelo</label>
-            <label>Precio</label>
-            <ChooseFlightItem setFlight={setFlight}></ChooseFlightItem>
-
+            <div className="header">
+                <label>Salida</label>
+                <label>Llegada</label>
+                <label>Aerolínea</label>
+                <label>Vuelo</label>
+                <label>Precio</label>
+            </div>
+            <div className="flights">
+                <ChooseFlightItem setFlight={setFlight}></ChooseFlightItem>
+            </div>
             <hr />
         </div>
     )
