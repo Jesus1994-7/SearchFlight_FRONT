@@ -52,5 +52,5 @@ class Header extends React.Component {
         );
     }
 }
-const mapStateToProps = ({ user }) => ({ userL: user?.user })
+const mapStateToProps = ({ users }) => ({ userL: users?.user })
 export default connect(mapStateToProps)(Header);
