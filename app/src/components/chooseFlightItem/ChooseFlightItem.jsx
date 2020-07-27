@@ -15,21 +15,18 @@ class ChooseFlightItem extends React.Component {
             <div >
                 {this.props.flightsList?.map(flight => (
                     <div className="flights" key={flight.id} >
-                        <div name="takeOffDate" >{flight.takeOffDate}</div>
+                        <label name="takeOffDate" >{flight.takeOffDate}</label>
 
-                        <div name="takeOffAirportId" >{flight.TakeOffAirportId}</div>
-                        <div name="landingAirportId" >{flight.LandingAirportId}</div>
+                        <label name="landingDate">{flight.landingDate}</label>
 
-                        <div name="landingDate">{flight.landingDate}</div>
+                        <label name="company" className="company">{flight.CompanyId}</label>
 
-                        <div name="company" >{flight.CompanyId}</div>
+                        <label name="plane" className="plane">{flight.PlaneId}</label>
 
-                        <div name="plane" >{flight.PlaneId}</div>
-
-                        <div name="price" >{flight.price}</div>
+                        <label name="price" className="price">{flight.price}</label>
 
                         
-                            <Link to='/buyflight'><button value={flight.id} onClick={ e => this.props.setFlight(e.target.value)}>Comprar</button></Link>
+                        <Link to='/buyflight'><button className="compra" value={flight.id} onClick={ e => this.props.setFlight(e.target.value)}>Comprar</button></Link>
                         
                     </div>
                 ))}

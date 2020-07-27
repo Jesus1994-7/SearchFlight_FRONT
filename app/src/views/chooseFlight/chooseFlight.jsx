@@ -1,5 +1,7 @@
 import React from 'react';
 import ChooseFlightItem from '../../components/chooseFlightItem/ChooseFlightItem.jsx';
+import Search from '../../components/searchFlight/searchFlight.jsx';
+
 
 import './chooseFlight.scss';
 import { flightService } from '../../services/flightService.js';
@@ -20,7 +22,7 @@ const ChooseFlight = (props) => {
     }
 
     return (
-        <div >
+        <div className="searchflight">
             <div className="header">
                 <label>Salida</label>
                 <label>Llegada</label>
@@ -31,7 +33,7 @@ const ChooseFlight = (props) => {
             <div className="flights">
                 <ChooseFlightItem setFlight={setFlight}></ChooseFlightItem>
             </div>
-            <hr />
+                <Search />
         </div>
     )
 }
