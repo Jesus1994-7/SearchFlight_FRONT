@@ -75,7 +75,7 @@ class Register extends React.Component {
     }
 
     setQuestion(question) {
-        this.setState({ question: question });
+        this.setState({ questionSecret: question });
     }
 
     setCountry(countryId) {
