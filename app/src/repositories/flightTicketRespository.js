@@ -1,10 +1,13 @@
 import axios from 'axios';
 
-export const flighticketRepository = {
-    createflightTicket
+export const flightTicketRepository = {
+    createTicket
 };
-function createflightTicket(flighticket) {
-    axios.post(`/flighticket/create`, flighticket)
-        .then()
-        .catch(error => { throw Error(error) });
+async function createTicket(flighticket) {
+    try {
+        const res = await axios.post(`/flighticket/create`, flighticket)
+        return res.data;
+    } catch (error) {
+        console.log(error)
+    }
 };

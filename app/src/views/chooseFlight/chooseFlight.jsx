@@ -7,21 +7,18 @@ import { useSelector } from 'react-redux';
 
 const ChooseFlight = (props) => {
 
-    let isSelected = false;
-
     const flights = useSelector(({flights}) => flights.flightsList );
     //console.log(flights)
 
 
     
-    const setFlight = (idFlight) => {
+    function setFlight(idFlight) {
         for (const flight of flights) {
         console.log(typeof(flight.id))
         console.log(typeof( idFlight))
         if (parseInt(flight.id) == idFlight) {
             console.log(flight)
             flightService.choosedFlight(flight);
-            isSelected = true;
             break;
         }
         }
