@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import './header.scss';
 //ICONOS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faUser, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faUser } from '@fortawesome/free-solid-svg-icons'
 
 import logo1 from '../../img/logo.png'
 
@@ -44,9 +44,7 @@ class Header extends React.Component {
                                     </li>
                                 }
                             </ul>
-
                         </li>
-                        <li><Link to="/"><FontAwesomeIcon icon={faSearch} className="iconos" /></Link></li>
                     </ul>
                 </div>
 

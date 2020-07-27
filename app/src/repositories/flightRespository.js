@@ -4,8 +4,7 @@ const EMPTY = [];
 
 export const flightRepository = {
     getFlightsGo,
-    doFlighticket
-    
+    getFlightsbyDate
 };
 
 async function getFlightsGo(dataFlights) {
@@ -13,14 +12,11 @@ async function getFlightsGo(dataFlights) {
         const res = await axios.post(`data/searchFlight`, dataFlights);
         return res.data;
     } catch (error) { return EMPTY; }
-}
+};
 
-async function doFlighticket(dataFlight) {
+async function getFlightsbyDate(date) {
     try {
-        const res = await axios.post('flighticket/create' , dataFlight);
+        const res = await axios.post(`data/flightbydate`, date);
         return res.data;
-    } catch (error) {
-        return error;
-    }
-}
-
+    } catch (error) { return EMPTY; }
+};

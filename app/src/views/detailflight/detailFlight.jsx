@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import './detailFlight.scss';
 
 import { flightServiceTicket } from '../../services/flightTicketService.js';
 import { NavLink } from 'react-router-dom';

@@ -39,12 +39,10 @@ class SearchFlightComp extends React.Component {
                 this.setState({ msgError: " Tiene que seleccionar aeropuertos. " });
                 return;
             }
-            //this.setState({ datego: "2020-07-17" });
             if (utils.isNullOrEmpty(this.state.datego)) {
                 this.setState({ msgError: " Tiene que tener fecha de ida. " });
                 return;
             }
-            console.log(this.state.airports[0], this.state.airports[1])
             flightService.getFlights(this.state.airports[0], this.state.airports[1],
                 this.state.datego, this.state.datereturn)
             setTimeout(() => {
@@ -58,24 +56,32 @@ class SearchFlightComp extends React.Component {
     render() {
         return (
             <form onSubmit={this.searchFlights} className="search">
+                <h3>Busque su vuelo</h3>
                 <div className="components-search">
-                    <span>{this.state.msgError}</span>
-                    <div className="names">
-                        <p> Salida</p>
-                        <p> Vuelta</p>
-                        <p> Fecha de salida </p>
-                        <p> Fecha de vuelta </p>
-                    </div>
 
+                    <span>{this.state.msgError}</span>
                     <div className="components">
-                        <AirportList id={0} setAirport={this.setAirport} readOnly />
-                        <AirportList id={1} setAirport={this.setAirport} readOnly />
-                        <input type="text" name="datego" value={this.state.datego} onChange={this.handleChange} />
-                        <input type="text" name="datereturn" value={this.state.datereturn} onChange={this.handleChange} />
+                        <div>
+                            <p>Salida</p>
+                            <AirportList id={0} setAirport={this.setAirport} readOnly />
+                        </div>
+
+                        <div >
+                            <p> Vuelta</p>
+                            <AirportList id={1} setAirport={this.setAirport} readOnly />
+                        </div>
+
+                        <div >
+                            <p> Fecha de salida </p>
+                            <input type="text" placeholder="2020-01-01" name="datego" value={this.state.datego} onChange={this.handleChange} />
+
+                        </div>
+                        <div >
+                            <p> Fecha de vuelta </p>
+                            <input type="text" name="datereturn" value={this.state.datereturn} onChange={this.handleChange} />
+                        </div>
                     </div>
-                    <div>
-                        <button type="submit">Donde están mis vuelos!</button>
-                    </div>
+                    <button type="submit">Donde están mis vuelos!</button>
                 </div>
             </form>
         )

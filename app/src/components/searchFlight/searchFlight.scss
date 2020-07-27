@@ -8,16 +8,12 @@
     opacity: 0.9;
     margin-left: 32%;
 
-    .names {
-        display: flex;
-        justify-content: space-around;
-    }
-
     .components {
         display: flex;
         justify-content: space-around;
-        margin-bottom: 3%;
+        padding: 0.5em;
     }
+
     button {
         background-color: blue;
         color: white;
