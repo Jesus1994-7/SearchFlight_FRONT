@@ -6,21 +6,14 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 
-const DetailFlight = () =>{
+const DetailFlight = () => {
 
-    //Hacer ticket
-    //CSS OFERTAS Y DE CAMBIO DIVISA
-    //Meter Search en choose
-
-    const flight = useSelector(({flights}) => flights.goFlight)
-    console.log(flight);
+    const flight = useSelector(({ flights }) => flights.goFlight)
 
     const buyFlight = (ev) => {
         ev.preventDefault();
 
         try {
-            //validar solo los inputs
-            //completamente iguales
             const flightTicket = {
                 landingDate: this.state.landingDate,
                 takeOffDate: this.state.takeOffDate,
@@ -43,32 +36,32 @@ const DetailFlight = () =>{
             console.log(error);
         }
     }
-        return (
-            <div>
-                {flight?.map(flight => {
-                    return (
-                        <div key={flight.id}>
-                            <div name="takeOffDate">{flight.takeOffDate}</div>
+    return (
+        <div>
+            {flight?.map(flight => {
+                return (
+                    <div key={flight.id}>
+                        <div name="takeOffDate">{flight.takeOffDate}</div>
 
-                            <div name="takeOffAirportId">{flight.TakeOffAirportId}</div>
-                            <div name="landingAirportId">{flight.LandingAirportId}</div>
+                        <div name="takeOffAirportId">{flight.TakeOffAirportId}</div>
+                        <div name="landingAirportId">{flight.LandingAirportId}</div>
 
-                            <div name="landingDate">{flight.landingDate}</div>
+                        <div name="landingDate">{flight.landingDate}</div>
 
-                            <div name="company">{flight.CompanyId}</div>
+                        <div name="company">{flight.CompanyId}</div>
 
-                            <div name="plane">{flight.PlaneId}</div>
+                        <div name="plane">{flight.PlaneId}</div>
 
-                            <div name="price">{flight.price}</div>
+                        <div name="price">{flight.price}</div>
 
-                            <NavLink exact to='/'>
-                                <button onClick={buyFlight}></button>
-                            </NavLink>
-                        </div>
-                    );
-                })}
-            </div>
-        )
-    }
+                        <NavLink exact to='/'>
+                            <button onClick={buyFlight}></button>
+                        </NavLink>
+                    </div>
+                );
+            })}
+        </div>
+    )
+}
 
 export default DetailFlight;
