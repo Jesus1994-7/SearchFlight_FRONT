@@ -9,7 +9,6 @@ class CountryList extends React.Component {
 
     render() {
         return (
-
             <select defaultValue={this.props.selected} onChange={
                 e => this.props.setCountry( e.target.value )}>
                 {this.props.countries?.map(country => (

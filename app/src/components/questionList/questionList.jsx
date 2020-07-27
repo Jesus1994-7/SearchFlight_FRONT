@@ -10,9 +10,10 @@ class QuestionList extends React.Component {
     render() {
         return (
             <select defaultValue={this.props.selected} onChange={
-                e => this.props.setQuestion(e.target.key)}>
+                e => this.props.setQuestion(e.target.value)}>
                 {this.props.questions?.map(question => (
-                    <option key={question.questionSecret}>
+                    <option key={question.questionSecret}
+                    value={question.questionSecret}>
                         {question.questionSecret}
                     </option>
                 ))}

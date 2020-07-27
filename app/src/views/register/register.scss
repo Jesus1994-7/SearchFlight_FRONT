@@ -1,29 +1,26 @@
 .comp-Register{
     width: 100%;
-    height: 1300px;
     background-color: #022040;
     display: flex;
     justify-content: center;
 }
 .register {
     margin-top: 3%;
-    width: 50%;
-    height: 1200px;
-    border: 1px solid red;
-    background-color: #294664;
-    text-align: center;
-
+    width: 40%;
+    height: 800px;
+    border: 1px solid black;
+    background-color: white;
+    text-align: left;
+    padding-left: 3em;
+    border-radius: 25px;
     input {
-        width: 70%;
-        margin-bottom: 5%;
-        margin-top: 3%;
+        width: 80%;
+        margin-bottom: 1%;
         height: 15px;
     }
     button {
         margin-top: 4%;
         position: relative;
         right: 20%;
-
     }
-
 }
