@@ -6,9 +6,15 @@
     padding: 2em;
     background-color: #294664;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
+    
 
     button {
         width: 100px;
+    }
+
+    .last {
+        margin-right: 30%;
     }
 }

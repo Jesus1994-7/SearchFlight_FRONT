@@ -1,4 +1,4 @@
-import { AIRPORTS, QUESTIONS, IATACODES, COUNTRIES, CURRENCIES } from "../types/initialData.js";
+import { AIRPORTS, QUESTIONS, IATACODES, COUNTRIES, CURRENCIES, INSURANCES } from "../types/initialData.js";
 import store from '../store';
 
 export const valuesAirports = async (airportsList) => {
@@ -29,5 +29,11 @@ export const valuesCurrencies = async (currenciesList) => {
     store.dispatch({
         type: CURRENCIES,
         payload: currenciesList
+    });
+};
+export const valuesInsurances = async (insurancesList) => {
+    store.dispatch({
+        type: INSURANCES,
+        payload: insurancesList
     });
 };

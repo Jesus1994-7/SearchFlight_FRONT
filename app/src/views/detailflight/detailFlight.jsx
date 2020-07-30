@@ -4,64 +4,57 @@ import './detailFlight.scss';
 import { flightServiceTicket } from '../../services/flightTicketService.js';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useHistory} from 'react-router-dom';
 
 
 const DetailFlight = () => {
 
     const flight = useSelector(({ flights }) => flights.goFlight)
+    
+    const history = useHistory();
 
     const buyFlight = (ev) => {
         ev.preventDefault();
-
         try {
             const flightTicket = {
-                landingDate: this.state.landingDate,
-                takeOffDate: this.state.takeOffDate,
-                landingAirport: this.state.landingAirport,
-                takeOffAirport: this.state.takeOffAirport,
-                basePrice: this.state.basePrice,
+                ...flight,
                 ratioExchange: 1,
-                baseCurrency: this.state.baseCurrency,
-                price: this.state.price,
-                currency: this.state.currency,
-                smoking: this.state.smoking,
                 InsuranceId: 1,
-                flightCode: this.state.flightCode,
-                plane: this.state.plane,
                 seat: 3
             }
-
+            console.log(flightTicket);
             flightServiceTicket.createFlightTicket(flightTicket)
+            console.log('entra')
+            setTimeout(() => {
+                history.push('/thanks')
+            }, 1500)
         } catch (error) {
             console.log(error);
         }
     }
     return (
-        <div>
-            {flight?.map(flight => {
-                return (
-                    <div key={flight.id}>
-                        <div name="takeOffDate">{flight.takeOffDate}</div>
+        <div className="billview">
+            <div key={flight.id} className="bill">
+               <div className="billInfo" value={flight.takeOffDate} name="takeOffDate"> Fecha de salida : {flight.takeOffDate}</div>
 
-                        <div name="takeOffAirportId">{flight.TakeOffAirportId}</div>
-                        <div name="landingAirportId">{flight.LandingAirportId}</div>
+                <div className="billInfo" value={flight.takeOffAirport} name="takeOffAirportId">Aeropuerto de salida : {flight.TakeOffAirportId}</div>
+                <div className="billInfo" value={flight.LandingAirportId} name="landingAirportId">Aeropuerto de llegada : {flight.LandingAirportId}</div>
 
-                        <div name="landingDate">{flight.landingDate}</div>
+                <div className="billInfo" value={flight.landingDate} name="landingDate">Fecha de llegada : {flight.landingDate}</div>
 
-                        <div name="company">{flight.CompanyId}</div>
+                <div className="billInfo" value={flight.CompanyId} name="company">Compañía : {flight.Company.name}</div>
 
-                        <div name="plane">{flight.PlaneId}</div>
+                <div className="billInfo" value={flight.PlaneId} name="plane">Avión : {flight.Plane.model}</div>
 
-                        <div name="price">{flight.price}</div>
+                <div className="billInfo" value={flight.price} name="price">Precio : {flight.price}</div>
 
-                        <NavLink exact to='/'>
-                            <button onClick={buyFlight}></button>
-                        </NavLink>
-                    </div>
-                );
-            })}
+                <NavLink exact to='/'>
+                    <button onClick={buyFlight}>Comprar</button>
+                </NavLink>
+            </div>
         </div>
-    )
+    );
+
 }
 
 export default DetailFlight;

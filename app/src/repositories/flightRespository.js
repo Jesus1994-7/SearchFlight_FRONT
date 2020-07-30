@@ -18,6 +18,7 @@ async function getFlightsGo(dataFlights) {
 async function getFlightsbyDate(date) {
     try {
         const res = await axios.post(`data/flightbydate`, date);
+        console.log(date)
         return res.data;
     } catch (error) { return EMPTY; }
 };

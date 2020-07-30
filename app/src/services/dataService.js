@@ -3,7 +3,7 @@ import { utils } from "../utils/utils.js";
 import {
     valuesQuestions, valuesIataCodes,
     valuesCountries, valuesCurrencies,
-    valuesAirports
+    valuesAirports, valuesInsurances
 } from '../redux/actions/initialData.js';
 
 export const dataService = {
@@ -31,4 +31,7 @@ function importInitialData() {
 
     dataRepository.getAllCurrencies()
         .then(currencies => valuesCurrencies(currencies));
+
+    dataRepository.getAllInsurances()
+        .then(insurances => valuesInsurances(insurances));
 };

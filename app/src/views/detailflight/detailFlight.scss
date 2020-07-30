@@ -1,0 +1,13 @@
+.billview {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bill {
+    height: 75%;
+    width: 95%;
+    border: red 1px solid;
+    border-radius: 25px;
+}

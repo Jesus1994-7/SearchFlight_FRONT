@@ -7,7 +7,8 @@ export const dataRepository = {
     getAllIataCodes,
     getAllCountries,
     getAllCurrencies,
-    getAllAirports
+    getAllAirports,
+    getAllInsurances
 };
 
 
@@ -45,4 +46,10 @@ async function getAllAirports() {
         return res.data;
     }
     catch (error) { return EMPTY; }
+};
+async function getAllInsurances() {
+    try {
+        const res = await axios.get(`insurance/allinsurances`);
+        return res.data;
+    } catch (error) { return EMPTY; }
 };

@@ -7,7 +7,7 @@ import './chooseFlight.scss';
 import { flightService } from '../../services/flightService.js';
 import { useSelector } from 'react-redux';
 
-const ChooseFlight = (props) => {
+const ChooseFlight = () => {
 
     const flights = useSelector(({ flights }) => flights.flightsList);
 

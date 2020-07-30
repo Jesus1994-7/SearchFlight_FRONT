@@ -37,7 +37,7 @@ function registerUserValidation(user, password2) {
 
     error += this.passwordsValidation(user.password, password2);
 
-    if (utils.isNullOrEmpty(user.questionSecret)) { error += ' Necesita elegir una pregunta secreta. '; }
+    //if (utils.isNullOrEmpty(user.questionSecret)) { error += ' Necesita elegir una pregunta secreta. '; }
     if (utils.isNullOrEmpty(user.answerSecret)) { error += ' Necesita introducir una respuesta secreta. '; }
 
     return error;

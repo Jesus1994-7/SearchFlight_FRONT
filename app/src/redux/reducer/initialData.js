@@ -1,11 +1,12 @@
-import { AIRPORTS, QUESTIONS, IATACODES, COUNTRIES, CURRENCIES } from "../types/initialData.js";
+import { AIRPORTS, QUESTIONS, IATACODES, COUNTRIES, CURRENCIES, INSURANCES } from "../types/initialData.js";
 
 const initialState = {
     questionsList: [],
     iataCodesList: [],
     countriesList: [],
     currenciesList: [],
-    airportsList: []
+    airportsList: [],
+    insurancesList: []
 };
 
 export default function reducer(state = initialState, action) {
@@ -34,6 +35,11 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 currenciesList: action.payload
+            };
+        case INSURANCES:
+            return {
+                ...state,
+                insurancesList: action.payload
             };
         default:
             return state;

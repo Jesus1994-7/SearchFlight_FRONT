@@ -19,9 +19,9 @@ class ChooseFlightItem extends React.Component {
 
                         <label name="landingDate">{flight.landingDate}</label>
 
-                        <label name="company" className="company">{flight.CompanyId}</label>
+                        <label name="company" className="company">{flight.Company.name}</label>
 
-                        <label name="plane" className="plane">{flight.PlaneId}</label>
+                        <label name="plane" className="plane">{flight.Plane.model}</label>
 
                         <label name="price" className="price">{flight.price}</label>
 

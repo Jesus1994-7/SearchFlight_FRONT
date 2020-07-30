@@ -3,3 +3,4 @@ export const QUESTIONS = 'QUESTIONS';
 export const IATACODES = 'IATACODES';
 export const COUNTRIES = 'COUNTRIES';
 export const CURRENCIES = 'CURRENCIES';
+export const INSURANCES = 'INSURANCES';
